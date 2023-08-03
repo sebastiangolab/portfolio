@@ -1,0 +1,41 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-size: fonts.$basicFont;
+   line-height: fonts.$defaultLineHeight;
+   background: colors.$page-background;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+   display: block;
+   max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   overflow-wrap: break-word;
+}
