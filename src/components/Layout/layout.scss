@@ -1,0 +1,28 @@
+@use '@/styles/variables/colors.scss' as colors;
+
+$containerWidth: 1280px;
+$containerPadding: 15px;
+$lineHeight: 3px;
+
+.layout {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   padding-bottom: $lineHeight;
+
+   .container {
+      width: 100%;
+      max-width: $containerWidth;
+      padding-left: $containerPadding;
+      padding-right: $containerPadding;
+   }
+
+   &::after {
+      content: '';
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: $lineHeight;
+      background-color: colors.$primary;
+   }
+}
