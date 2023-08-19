@@ -9,7 +9,7 @@
    padding-top: 36px;
 
    .logo {
-      font-size: 25px;
+      font-size: 1.563rem;
       color: colors.$black;
       font-weight: map-get(fonts.$weights, 'medium');
       text-decoration: none;
@@ -40,7 +40,7 @@
          }
 
          .link {
-            font-size: 16px;
+            font-size: 1rem;
             color: colors.$black;
             text-decoration: none;
             transition: color fonts.$hoverTransitionSec;
@@ -64,7 +64,7 @@
       padding-bottom: 20px;
 
       .logo {
-         font-size: 15px;
+         font-size: 0.938rem;
       }
 
       .hamburger {
