@@ -1,0 +1,156 @@
+@use '@/styles/variables/colors' as colors;
+@use '@/styles/variables/fonts' as fonts;
+@use '@/styles/variables/breakpoints' as *;
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-top: 36px;
+
+   .logo {
+      font-size: 25px;
+      color: colors.$black;
+      font-weight: map-get(fonts.$weights, 'medium');
+      text-decoration: none;
+   }
+
+   .hamburger {
+      display: none;
+   }
+
+   .nav {
+      display: flex;
+
+      #active-mark {
+         position: absolute;
+         left: -2px;
+         top: -20px;
+         width: 2px;
+         height: 20px;
+         background-color: colors.$primary;
+         transition: transform 0.3s, top 0.1s 0.3s;
+      }
+
+      .container-link {
+         padding: 3px 34px;
+
+         &:first-child {
+            padding-left: 12px;
+         }
+
+         .link {
+            font-size: 16px;
+            color: colors.$black;
+            text-decoration: none;
+            transition: color fonts.$hoverTransitionSec;
+
+            &:first-child {
+               margin-left: 0;
+            }
+
+            &:hover {
+               color: colors.$primary;
+            }
+         }
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .header {
+      background-color: colors.$page-background;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      .logo {
+         font-size: 15px;
+      }
+
+      .hamburger {
+         position: relative;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         width: 30px;
+         height: 14px;
+         cursor: pointer;
+
+         .lines {
+            display: block;
+            background-color: colors.$primary;
+            width: 23px;
+            height: 2px;
+            transition: width 0.1s linear;
+
+            &::before,
+            &::after {
+               content: '';
+               position: absolute;
+               right: 0;
+               height: 2px;
+               background-color: colors.$primary;
+               transition: width 0.1s linear, transform 0.3s linear 0.1s;
+            }
+
+            &::before {
+               top: 0;
+               width: 30px;
+            }
+
+            &::after {
+               bottom: 0;
+               width: 16px;
+            }
+         }
+
+         &.open {
+            width: 21px;
+
+            .lines {
+               width: 0;
+
+               &::before {
+                  width: 21px;
+                  transform: translateY(6px) rotate(45deg);
+               }
+
+               &::after {
+                  width: 21px;
+                  transform: translateY(-6px) rotate(-45deg);
+               }
+            }
+         }
+      }
+
+      .nav {
+         position: absolute;
+         width: 100%;
+         top: 62.5px;
+         left: -100%;
+         height: calc(100vh - 62.5px);
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         transition: transform 0.4s;
+         background-color: colors.$page-background;
+         border-top: 1px solid colors.$grey;
+
+         #active-mark {
+            display: none;
+         }
+
+         .container-link {
+            margin-top: 30px;
+
+            &:first-child {
+               margin-top: 0;
+            }
+         }
+
+         &.open {
+            transform: translateX(100%);
+         }
+      }
+   }
+}

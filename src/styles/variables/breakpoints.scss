@@ -1,3 +1,16 @@
-$desktop-min: 1309;
-$tablet-max: 991;
-$mobile-max: 767;
+$breakpoints: (
+   'mobile': 767px,
+   'tablet': 991px,
+   'small-desktop': 1309px,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+   @if map-has-key($breakpoints, $breakpoint) {
+      @media (max-width: map-get($breakpoints, $breakpoint)) {
+         @content;
+      }
+   } @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+   }
+}
