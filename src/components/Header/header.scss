@@ -9,7 +9,7 @@
    padding-top: 36px;
 
    .logo {
-      font-size: 1.563rem;
+      font-size: 1.375rem;
       color: colors.$black;
       font-weight: map-get(fonts.$weights, 'medium');
       text-decoration: none;
@@ -39,6 +39,10 @@
             padding-left: 12px;
          }
 
+         &:last-child {
+            padding-right: 0;
+         }
+
          .link {
             font-size: 1rem;
             color: colors.$black;
@@ -52,6 +56,18 @@
             &:hover {
                color: colors.$primary;
             }
+         }
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .header {
+      padding-top: 30px;
+
+      .nav {
+         .container-link {
+            padding: 2px 28px;
          }
       }
    }
@@ -126,22 +142,24 @@
       .nav {
          position: absolute;
          width: 100%;
-         top: 62.5px;
+         top: 57.5px;
          left: -100%;
-         height: calc(100vh - 62.5px);
+         height: calc(100vh - 57.5px);
          flex-direction: column;
          align-items: center;
          justify-content: center;
          transition: transform 0.4s;
          background-color: colors.$page-background;
          border-top: 1px solid colors.$grey;
+         z-index: 9999999999999999;
 
          #active-mark {
             display: none;
          }
 
          .container-link {
-            margin-top: 30px;
+            padding: 0;
+            margin-top: 40px;
 
             &:first-child {
                margin-top: 0;
