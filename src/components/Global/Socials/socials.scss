@@ -1,0 +1,50 @@
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/breakpoints' as *;
+
+.socials {
+   display: flex;
+
+   .icon {
+      margin-left: 40px;
+
+      svg {
+         width: auto;
+         height: 1.25rem;
+         fill: colors.$black;
+         transition: fill fonts.$hoverTransitionSec;
+
+         &:hover {
+            fill: colors.$black-hover;
+         }
+      }
+
+      &:first-child {
+         margin-left: 0;
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .socials {
+      .icon {
+         margin-left: 37px;
+
+         svg {
+            height: 1.188rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .socials {
+      .icon {
+         margin-left: 28px;
+
+         svg {
+            height: 1rem;
+         }
+      }
+   }
+}
