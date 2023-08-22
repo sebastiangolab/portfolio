@@ -14,7 +14,6 @@ html {
 }
 
 body {
-   line-height: 1.5em;
    background: colors.$page-background;
    color: colors.$black;
 }
@@ -44,6 +43,7 @@ h5,
 h6 {
    overflow-wrap: break-word;
    color: colors.$black;
+   line-height: 1.5em;
 }
 
 a {
