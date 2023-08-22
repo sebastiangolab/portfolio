@@ -1,0 +1,11 @@
+@use '@/styles/variables/breakpoints' as *;
+
+.paragraph {
+   font-size: 1rem;
+}
+
+@include breakpoint('mobile') {
+   .paragraph {
+      font-size: 0.813rem;
+   }
+}
