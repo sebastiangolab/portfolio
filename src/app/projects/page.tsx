@@ -3,7 +3,7 @@
 import './projects.scss';
 import Paragraph from '@/components/Global/Paragraph';
 import PageTitle from '@/components/Global/PageTitle';
-import Realizations from '@/components/Projects/Realizations';
+// import Realizations from '@/components/Projects/Realizations';
 
 export default function Projects() {
    return (
@@ -19,7 +19,7 @@ export default function Projects() {
             </Paragraph>
          </div>
 
-         <Realizations />
+         {/* <Realizations /> */}
       </div>
    );
 }
