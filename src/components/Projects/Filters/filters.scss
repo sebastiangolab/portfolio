@@ -1,0 +1,35 @@
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/fonts' as fonts;
+
+.filters {
+   display: flex;
+   margin-top: 40px;
+   margin-bottom: 40px;
+
+   .title,
+   .option {
+      font-size: 1rem;
+   }
+
+   .title {
+      font-weight: map-get(fonts.$weights, 'medium');
+   }
+
+   .option {
+      margin-left: 38px;
+      font-weight: map-get(fonts.$weights, 'regular');
+      background-color: colors.$white;
+      border: none;
+      cursor: pointer;
+      transition: color fonts.$hoverTransitionSec;
+
+      &:hover {
+         color: colors.$primary;
+      }
+   }
+
+   .active {
+      color: colors.$primary;
+      font-weight: map-get(fonts.$weights, 'medium');
+   }
+}

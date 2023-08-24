@@ -1,0 +1,65 @@
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/fonts' as fonts;
+
+.realizations {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 30px 25px;
+
+   .realization {
+      position: relative;
+
+      .hover-content {
+         display: none;
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         z-index: 1;
+         padding: 20px;
+         opacity: 0;
+         transition: opacity fonts.$hoverTransitionSec;
+
+         h2,
+         p {
+            color: colors.$white;
+         }
+
+         h2 {
+            font-size: 1.25rem;
+            font-weight: map-get(fonts.$weights, 'medium');
+            margin-bottom: 8px;
+         }
+
+         p {
+            font-size: 0.75rem;
+            font-weight: map-get(fonts.$weights, 'regular');
+         }
+
+         .background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: colors.$primary;
+            opacity: 0.9;
+            z-index: -1;
+         }
+
+         &:hover {
+            opacity: 1;
+         }
+      }
+
+      .image {
+         width: 100%;
+         height: auto;
+      }
+   }
+}
