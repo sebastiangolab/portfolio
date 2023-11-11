@@ -83,7 +83,18 @@
       // eslint looks for the prettier config at the top level of the package/app
       // but the config lives in the `config/` directory. Passing the config here
       // to get around this.
-      "prettier/prettier": ["error", "prettierConfig"]
+      "prettier/prettier": [
+         "error",
+         {
+            "prettierConfig": {
+               "arrowParens": "avoid",
+               "singleQuote": true,
+               "trailingComma": "all",
+               "tabWidth": 3,
+               "endOfLine": "auto"
+            }
+         }
+      ]
    },
    "settings": {
       "react": {
