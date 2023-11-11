@@ -1,0 +1,60 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+.form-row {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 27px;
+
+   .label {
+      color: colors.$black;
+      font-size: 0.875rem;
+      font-weight: map-get(fonts.$weights, 'regular');
+      margin-bottom: 5px;
+      line-height: 1.5em;
+   }
+
+   input,
+   textarea {
+      color: colors.$black;
+      padding: 15px;
+      border: 1px solid colors.$grey-input;
+      border-radius: 8px;
+   }
+
+   textarea {
+      height: 100px;
+   }
+}
+
+@include breakpoint('laptop') {
+   .form-row {
+      margin-bottom: 25px;
+
+      .label {
+         font-size: 0.813rem;
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .form-row {
+      margin-bottom: 23px;
+
+      .label {
+         font-size: 0.75rem;
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .form-row {
+      margin-bottom: 20px;
+
+      .label {
+         font-size: 0.75rem;
+         margin-bottom: 4px;
+      }
+   }
+}

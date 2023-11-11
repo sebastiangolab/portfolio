@@ -1,0 +1,69 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+.form-wrapper {
+   width: 100%;
+   padding: 50px 40px;
+   background-color: colors.$white;
+   box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.15);
+   border-radius: 30px;
+
+   .form-title {
+      font-size: 1.563rem;
+      font-weight: map-get(fonts.$weights, 'medium');
+      margin-bottom: 25px;
+   }
+
+   .form {
+      .message {
+         margin-top: 25px;
+         font-size: 0.875rem;
+         font-weight: map-get(fonts.$weights, 'regular');
+      }
+   }
+}
+
+@include breakpoint('laptop') {
+   .form-wrapper {
+      .form-title {
+         font-size: 1.438rem;
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .form-wrapper {
+      padding: 38px 30px;
+   }
+}
+
+@include breakpoint('tablet') {
+   .form-wrapper {
+      padding: 30px;
+
+      .form-title {
+         font-size: 1.25rem;
+         margin-bottom: 20px;
+      }
+
+      .form {
+         .message {
+            margin-top: 20px;
+            font-size: 0.813rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .form-wrapper {
+      width: 100%;
+      padding: 25px 13px;
+      border-radius: 20px;
+
+      .form-title {
+         font-size: 1.25rem;
+      }
+   }
+}
