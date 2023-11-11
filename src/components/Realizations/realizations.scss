@@ -139,6 +139,10 @@
          .realization-title {
             margin-top: 12px;
          }
+
+         &:hover > .image-wrapper > .hover-content {
+            opacity: 0;
+         }
       }
    }
 }
