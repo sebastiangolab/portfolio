@@ -1,0 +1,97 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+#employed-block {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(colors.$black, 0.06);
+   padding: 50px 20px;
+   border-radius: 30px;
+
+   .icon {
+      margin-right: 25px;
+   }
+
+   .text {
+      padding-top: 5px;
+      font-size: 2.188rem;
+      line-height: 1em;
+      font-weight: map-get(fonts.$weights, 'medium');
+   }
+}
+
+@include breakpoint('laptop') {
+   #employed-block {
+      padding: 40px 20px;
+
+      .icon {
+         margin-right: 20px;
+
+         svg {
+            height: 47px;
+            width: auto;
+         }
+      }
+
+      .text {
+         font-size: 1.875rem;
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   #employed-block {
+      padding: 37px 20px;
+
+      .icon {
+         margin-right: 18px;
+
+         svg {
+            height: 45px;
+         }
+      }
+
+      .text {
+         font-size: 1.688rem;
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   #employed-block {
+      padding: 30px 20px;
+
+      .icon {
+         margin-right: 15px;
+
+         svg {
+            height: 37px;
+         }
+      }
+
+      .text {
+         font-size: 1.5rem;
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   #employed-block {
+      padding: 20px;
+      border-radius: 20px;
+
+      .icon {
+         svg {
+            height: 26px;
+         }
+      }
+
+      .text {
+         font-size: 1rem;
+         line-height: 1.5em;
+         padding-top: 2px;
+      }
+   }
+}
