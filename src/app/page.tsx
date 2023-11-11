@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactElement } from 'react';
 import EmployedBlockSection from '@/sections/EmployedBlockSection';
 import ExperienceSection from '@/sections/ExperienceSection';

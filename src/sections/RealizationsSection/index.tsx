@@ -1,3 +1,5 @@
+'use client';
+
 import './realizationsSection.scss';
 import Button from '@/components/Button';
 import Filters from '@/components/Filters';

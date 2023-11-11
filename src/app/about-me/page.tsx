@@ -1,3 +1,5 @@
+'use client';
+
 import AboutContentSection from '@/sections/AboutContentSection';
 import ExperienceSection from '@/sections/ExperienceSection';
 
