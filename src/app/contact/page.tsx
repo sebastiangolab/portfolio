@@ -1,3 +1,11 @@
+'use client';
+
+import ContactSection from '@/sections/ContactSection';
+
 export default function Contact() {
-   return <h1>Contact</h1>;
+   return (
+      <div id="contact">
+         <ContactSection />
+      </div>
+   );
 }
