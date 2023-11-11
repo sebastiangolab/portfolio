@@ -4,7 +4,8 @@ export enum Breakpoints {
    START = 0,
    MOBILE = 767,
    TABLET = 991,
-   SMALL_DESKTOP = 1399,
+   SMALL_DESKTOP = 1199,
+   LAPTOP = 1479,
 }
 
 const useBreakpoint = (min: Breakpoints, max?: Breakpoints) => {

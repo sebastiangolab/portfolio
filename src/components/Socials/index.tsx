@@ -1,9 +1,9 @@
 import './socials.scss';
 import Link from 'next/link';
-import { LinkedinIcon } from '@/images/linkedin';
-import { GithubIcon } from '@/images/github';
-import { InstagramIcon } from '@/images/instagram';
-import { FacebookIcon } from '@/images/facebook';
+import { LinkedinIcon } from '@/assets/linkedin';
+import { GithubIcon } from '@/assets/github';
+import { InstagramIcon } from '@/assets/instagram';
+import { FacebookIcon } from '@/assets/facebook';
 
 const Socials = () => (
    <div className="socials">

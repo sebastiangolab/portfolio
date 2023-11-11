@@ -28,10 +28,22 @@
 @include breakpoint('small-desktop') {
    .socials {
       .icon {
-         margin-left: 37px;
+         margin-left: 34px;
 
          svg {
-            height: 1.188rem;
+            height: 1.125rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .socials {
+      .icon {
+         margin-left: 30px;
+
+         svg {
+            height: 1.063rem;
          }
       }
    }
@@ -41,10 +53,6 @@
    .socials {
       .icon {
          margin-left: 28px;
-
-         svg {
-            height: 1rem;
-         }
       }
    }
 }

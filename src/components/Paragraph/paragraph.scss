@@ -1,0 +1,34 @@
+@use '@/styles/variables/breakpoints' as *;
+
+.paragraph {
+   font-size: 1rem;
+   margin-bottom: 17px;
+
+   &:last-child {
+      margin-bottom: 0;
+   }
+}
+
+@include breakpoint('laptop') {
+   .paragraph {
+      margin-bottom: 15px;
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .paragraph {
+      font-size: 0.938rem;
+   }
+}
+
+@include breakpoint('tablet') {
+   .paragraph {
+      font-size: 0.875rem;
+   }
+}
+
+@include breakpoint('mobile') {
+   .paragraph {
+      font-size: 0.813rem;
+   }
+}

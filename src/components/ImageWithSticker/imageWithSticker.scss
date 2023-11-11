@@ -1,0 +1,78 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+.image-with-sticker {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   border-radius: 30px;
+   overflow: hidden;
+   box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.15);
+
+   img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+
+   .sticker {
+      position: absolute;
+      right: 19px;
+      bottom: 19px;
+      font-size: 1.25rem;
+      line-height: 1em;
+      font-weight: map-get(fonts.$weights, 'medium');
+      padding: 15px 40px;
+      border-radius: 30px;
+      background-color: colors.$primary;
+      color: colors.$white;
+   }
+}
+
+@include breakpoint('laptop') {
+   .image-with-sticker {
+      .sticker {
+         right: 16px;
+         bottom: 16px;
+         font-size: 1.125rem;
+         padding: 13px 35px;
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .image-with-sticker {
+      .sticker {
+         right: 14px;
+         bottom: 14px;
+         font-size: 1rem;
+         padding: 13px 32px;
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .image-with-sticker {
+      .sticker {
+         right: 13px;
+         bottom: 13px;
+         font-size: 0.875rem;
+         padding: 12px 30px;
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .image-with-sticker {
+      height: auto;
+      border-radius: 20px;
+
+      .sticker {
+         right: 10px;
+         bottom: 10px;
+         font-size: 0.813rem;
+         padding: 9px 18px;
+      }
+   }
+}
