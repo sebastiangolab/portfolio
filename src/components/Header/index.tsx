@@ -9,7 +9,7 @@ const Header = (): ReactElement => {
    return (
       <div className="header">
          <Link href="/" className="logo">
-            ImSebastian
+            ImSebastian<span className="primary-color">.</span>
          </Link>
 
          <Navigation />

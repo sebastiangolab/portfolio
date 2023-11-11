@@ -1,15 +1,18 @@
 @use '@/styles/variables/colors' as colors;
 @use '@/styles/variables/fonts' as fonts;
+@use '@/styles/variables/layout' as layout;
 @use '@/styles/variables/breakpoints' as *;
 
 .header {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding-top: 36px;
+   padding: 27.5px 0;
+   border-bottom: 1px solid rgba(colors.$black, 0.3);
+   margin-bottom: layout.$section-space;
 
    .logo {
-      font-size: 1.375rem;
+      font-size: 1.875rem;
       color: colors.$black;
       font-weight: map-get(fonts.$weights, 'medium');
       text-decoration: none;
@@ -21,6 +24,7 @@
 
    .nav {
       display: flex;
+      align-items: center;
 
       #active-mark {
          position: absolute;
@@ -33,7 +37,7 @@
       }
 
       .container-link {
-         padding: 3px 34px;
+         padding: 3px 30px;
 
          &:first-child {
             padding-left: 12px;
@@ -45,6 +49,7 @@
 
          .link {
             font-size: 1rem;
+            line-height: 1em;
             color: colors.$black;
             text-decoration: none;
             transition: color fonts.$hoverTransitionSec;
@@ -58,29 +63,58 @@
             }
          }
       }
+
+      .container-link#wrapper-cv {
+         padding-top: 0;
+         padding-bottom: 0;
+      }
    }
 }
 
-@include breakpoint('tablet') {
+@include breakpoint('laptop') {
    .header {
-      padding-top: 30px;
+      padding: 25px 0;
+      margin-bottom: calc(layout.$section-laptop-space - 5px);
+
+      .logo {
+         font-size: 1.688rem;
+      }
 
       .nav {
          .container-link {
-            padding: 2px 28px;
+            padding: 3px 25px;
          }
       }
    }
 }
 
-@include breakpoint('mobile') {
+@include breakpoint('small-desktop') {
    .header {
-      background-color: colors.$page-background;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding: 24px 0;
+      margin-bottom: calc(layout.$section-small-desktop-space - 5px);
 
       .logo {
-         font-size: 0.938rem;
+         font-size: 1.563rem;
+      }
+
+      .nav {
+         .container-link {
+            padding: 3px 22px;
+
+            .link {
+               font-size: 0.938rem;
+            }
+         }
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .header {
+      margin-bottom: calc(layout.$section-tablet-space - 5px);
+
+      .logo {
+         font-size: 1.375rem;
       }
 
       .hamburger {
@@ -140,17 +174,17 @@
       }
 
       .nav {
-         position: absolute;
+         position: fixed;
          width: 100%;
-         top: 57.5px;
+         top: 73px;
          left: -100%;
-         height: calc(100vh - 57.5px);
+         height: calc(100vh - 73px);
          flex-direction: column;
          align-items: center;
          justify-content: center;
-         transition: transform 0.4s;
+         transition: transform 0.6s;
          background-color: colors.$page-background;
-         border-top: 1px solid colors.$grey;
+         border-top: 1px solid rgba(51, 51, 51, 0.3);
          z-index: 9999999999999999;
 
          #active-mark {
@@ -159,15 +193,53 @@
 
          .container-link {
             padding: 0;
-            margin-top: 40px;
+            margin-top: 32px;
 
-            &:first-child {
+            &#wrapper-home {
                margin-top: 0;
             }
          }
 
          &.open {
             transform: translateX(100%);
+         }
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .header {
+      background-color: colors.$page-background;
+      padding-top: 19px;
+      padding-bottom: 19px;
+      margin-bottom: calc(layout.$section-mobile-space - 10px);
+
+      .logo {
+         font-size: 1rem;
+      }
+
+      .nav {
+         top: 57px;
+         height: calc(100vh - 57px);
+         transition: transform 0.4s;
+
+         .container-link {
+            padding: 0;
+            margin-top: 32px;
+
+            &#wrapper-home {
+               margin-top: 0;
+            }
+
+            .link {
+               font-size: 0.938rem;
+            }
+
+            .button {
+               border: 0;
+               padding: 0;
+               font-size: 0.938rem;
+            }
          }
       }
    }

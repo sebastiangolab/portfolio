@@ -19,7 +19,15 @@ const useNavigation = (): Results => {
    const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
    const handleHamburgerClick = () => {
-      setMobileNavOpen((prevState: boolean) => !prevState);
+      setMobileNavOpen((prevState: boolean) => {
+         if (prevState) {
+            document.body.style.overflow = 'visible';
+         } else {
+            document.body.style.overflow = 'hidden';
+         }
+
+         return !prevState;
+      });
    };
 
    const setActiveCurrentPage = () => {

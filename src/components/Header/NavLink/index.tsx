@@ -1,3 +1,4 @@
+import Button from '@/components/Button';
 import Link from 'next/link';
 import { ReactElement } from 'react';
 
@@ -8,6 +9,7 @@ interface NavLink {
    handleOnClick: (event: React.MouseEvent) => void;
    handleMouseEnter: (event: React.MouseEvent) => void;
    handleMouseLeave: () => void;
+   isButton?: boolean;
 }
 
 const NavLink = ({
@@ -17,16 +19,22 @@ const NavLink = ({
    handleOnClick,
    handleMouseEnter,
    handleMouseLeave,
+   isButton,
 }: NavLink): ReactElement => {
    return (
       <div
+         id={`wrapper-${id}`}
          className="container-link"
          onMouseEnter={handleMouseEnter}
          onMouseLeave={handleMouseLeave}
       >
-         <Link href={href} className="link" onClick={handleOnClick} id={id}>
-            {text}
-         </Link>
+         {isButton ? (
+            <Button text={text} href={href} title={text} />
+         ) : (
+            <Link href={href} className="link" onClick={handleOnClick} id={id}>
+               {text}
+            </Link>
+         )}
       </div>
    );
 };

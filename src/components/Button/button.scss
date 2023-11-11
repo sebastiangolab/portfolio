@@ -1,0 +1,46 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+.button {
+   display: inline-block;
+   font-size: 1rem;
+   font-weight: map-get(fonts.$weights, 'regular');
+   line-height: 1em;
+   font-size: 15px;
+   color: colors.$black;
+   background-color: colors.$white;
+   padding: 14px 26px;
+   transition: background-color fonts.$hoverTransitionSec;
+   border: 1px solid colors.$black;
+   border-radius: 30px;
+   box-shadow: none;
+   cursor: pointer;
+
+   &:hover {
+      background: rgba(colors.$grey, 0.55);
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .button {
+      font-size: 0.938rem;
+      padding: 12px 24px;
+   }
+}
+
+@include breakpoint('tablet') {
+   .button {
+      font-size: 0.875rem;
+      padding: 12px 24px;
+   }
+}
+
+@include breakpoint('mobile') {
+   .button {
+      font-size: 0.813rem;
+      padding: 12px 20px;
+      width: 100%;
+      text-align: center;
+   }
+}
