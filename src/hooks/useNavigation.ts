@@ -71,6 +71,8 @@ const useNavigation = (): Results => {
    };
 
    const handleLinkClick = (event: React.MouseEvent) => {
+      document.body.style.overflow = 'visible';
+
       setActiveLink(event.currentTarget.id);
       setMobileNavOpen(false);
    };
