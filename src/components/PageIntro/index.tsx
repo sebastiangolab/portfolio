@@ -8,7 +8,7 @@ interface PageIntroProps {
 }
 
 const PageIntro = ({ title, children, isSection }: PageIntroProps) => (
-   <div className={`page-intro ${!!isSection ? 'section' : ''}`}>
+   <div className={`page-intro ${isSection ? 'section' : ''}`}>
       <h1 className="title">{title}</h1>
 
       {children}

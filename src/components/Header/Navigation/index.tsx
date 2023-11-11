@@ -1,5 +1,5 @@
 import useNavigation from '@/hooks/useNavigation';
-import { useLayoutEffect, useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import NavLink from '../NavLink';
 
 const Navigation = () => {

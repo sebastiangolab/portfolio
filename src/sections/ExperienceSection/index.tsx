@@ -21,11 +21,11 @@ const rows = [
 ];
 
 const ExperienceSection = () => (
-   <div id="experience" className="section">
+   <div className="section" id="experience">
       <SubTitle>Experience History</SubTitle>
 
-      {rows.map((row: Row) => (
-         <div className="row">
+      {rows.map((row: Row, index: number) => (
+         <div className="row" key={`${row.name}-${index}`}>
             <div className="column">
                <p className="label">Company name</p>
                <p className="text">{row.name}</p>

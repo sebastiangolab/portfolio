@@ -1,5 +1,5 @@
 import './filters.scss';
-import { ReactElement } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 
 interface FiltersProps {
    elements: string[];
@@ -12,8 +12,9 @@ const Filters = ({
    activeElement,
    setActiveFilter,
 }: FiltersProps): ReactElement<FiltersProps> => {
-   const handleOnClick = (event: any) => {
-      setActiveFilter(event.target.id);
+   const handleOnClick = (event: MouseEvent) => {
+      const target = event.currentTarget as HTMLInputElement;
+      setActiveFilter(target.id);
    };
 
    return (

@@ -21,7 +21,7 @@ const Realizations = ({
                  (technology: string) => technology === activeFilter,
               );
 
-              return filterRealizations.length > 0 ? true : false;
+              return filterRealizations.length > 0;
            }) || [];
 
    return (
@@ -32,15 +32,15 @@ const Realizations = ({
 
                  return (
                     <CSSTransition
-                       key={`${title}-${index}`}
                        classNames="fade"
+                       key={`${title}-${index}`}
                        timeout={{ enter: 300, exit: 300 }}
                     >
                        <Link
-                          href={link}
-                          title={title}
-                          target="_blank"
                           className="realization"
+                          href={link}
+                          target="_blank"
+                          title={title}
                        >
                           <div className="image-wrapper">
                              <div className="hover-content">
@@ -49,11 +49,11 @@ const Realizations = ({
                              </div>
 
                              <Image
+                                alt={`page ${title}`}
                                 className="image"
+                                height={218}
                                 src={image.url}
                                 width={409}
-                                height={218}
-                                alt={`page ${title}`}
                              />
                           </div>
 

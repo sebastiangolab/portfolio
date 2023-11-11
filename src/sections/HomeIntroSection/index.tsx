@@ -16,7 +16,7 @@ const HomeIntroSection = () => {
    const isMobile = useBreakpoint(Breakpoints.START, Breakpoints.MOBILE);
 
    return (
-      <div id="home-intro" className="section">
+      <div className="section" id="home-intro">
          <div className="flex-wrapper">
             <div className="content">
                <h1 className="title">
@@ -66,13 +66,13 @@ const HomeIntroSection = () => {
 
                {isMobile ? (
                   <ImageWithSticker
-                     src={avatarMobile.src}
                      retinaSrc={avatarMobileRetina.src}
+                     src={avatarMobile.src}
                   />
                ) : (
                   <ImageWithSticker
-                     src={avatar.src}
                      retinaSrc={avatarRetina.src}
+                     src={avatar.src}
                   />
                )}
             </div>

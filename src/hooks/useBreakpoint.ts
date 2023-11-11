@@ -20,9 +20,9 @@ const useBreakpoint = (min: Breakpoints, max?: Breakpoints) => {
 
       if (max !== undefined) {
          return screenWidth > min && screenWidth <= max;
-      } else {
-         return screenWidth > min;
       }
+
+      return screenWidth > min;
    }
 
    function handleResize(): void {

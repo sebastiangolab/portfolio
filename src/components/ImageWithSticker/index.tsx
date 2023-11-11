@@ -8,10 +8,10 @@ interface ImageWithStickerProps {
 const ImageWithSticker = ({ src, retinaSrc }: ImageWithStickerProps) => (
    <div className="image-with-sticker">
       <img
-         src={src}
-         srcSet={`${retinaSrc} 2x`}
          alt="my face avatar"
          className="avatar"
+         src={src}
+         srcSet={`${retinaSrc} 2x`}
       />
 
       <div className="sticker">Frontend Developer</div>

@@ -71,14 +71,10 @@
             "checkAliases": true
          }
       ],
-      "react/jsx-sort-props": [
-         "error",
-         {
-            "ignoreCase": true
-         }
-      ],
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": 0,
+      "react/no-unescaped-entities": 0,
+      "@next/next/no-img-element": "off",
       // Prettier
       // eslint looks for the prettier config at the top level of the package/app
       // but the config lives in the `config/` directory. Passing the config here
