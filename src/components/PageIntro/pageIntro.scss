@@ -1,0 +1,58 @@
+@use '@/styles/variables/fonts' as fonts;
+@use '@/styles/variables/breakpoints' as *;
+
+.page-intro {
+   &.section {
+      max-width: 600px;
+   }
+
+   .title {
+      font-size: 3.125rem;
+      font-weight: map-get(fonts.$weights, 'medium');
+      margin-bottom: 20px;
+   }
+}
+
+@include breakpoint('laptop') {
+   .page-intro {
+      &.section {
+         max-width: 540px;
+      }
+
+      .title {
+         font-size: 2.5rem;
+         margin-bottom: 15px;
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .page-intro {
+      .title {
+         font-size: 2.25rem;
+         margin-bottom: 14px;
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .page-intro {
+      max-width: 400px;
+
+      &.section {
+         max-width: 470px;
+      }
+
+      .title {
+         font-size: 2.125rem;
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .page-intro {
+      .title {
+         font-size: 1.563rem;
+      }
+   }
+}

@@ -1,25 +1,30 @@
 'use client';
 
-import './projects.scss';
-import Paragraph from '@/components/Global/Paragraph';
-import PageTitle from '@/components/Global/PageTitle';
-// import Realizations from '@/components/Projects/Realizations';
+import PageIntro from '@/components/PageIntro';
+import Paragraph from '@/components/Paragraph';
+import RealizationsSection from '@/sections/RealizationsSection';
 
 export default function Projects() {
    return (
       <div className="projects">
-         <div className="content">
-            <PageTitle>Projects</PageTitle>
+         <PageIntro
+            title={
+               <>
+                  My <span className="primary-color">Projects</span>
+               </>
+            }
+            isSection
+         >
             <Paragraph>
-               Hi, my name is Sebastian and I have been programming
-               professionally for 5 years. During this time, I have made many
-               projects (about 40-50 websites) as well as some interesting
-               projects at home. I am looking for a job as a frontend developer,
-               where i will can. at home. I am looking for.
+               Explore my diverse portfolio, from easy resposnive sites to
+               innovative apps, wchich show my ability to adapt to different
+               requirements . To made my pages I use diffrenet technologies and
+               libraries to improve my skills. I make effective apps
+               consistently exceeding client expectations.
             </Paragraph>
-         </div>
+         </PageIntro>
 
-         {/* <Realizations /> */}
+         <RealizationsSection />
       </div>
    );
 }

@@ -1,0 +1,40 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/breakpoints' as *;
+
+.sub-title {
+   font-size: 2.5rem;
+   font-weight: map-get(fonts.$weights, 'medium');
+   margin-bottom: 35px;
+
+   &.center {
+      text-align: center;
+   }
+}
+
+@include breakpoint('laptop') {
+   .sub-title {
+      font-size: 2.188rem;
+      margin-bottom: 30px;
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .sub-title {
+      font-size: 2rem;
+      margin-bottom: 25px;
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .sub-title {
+      font-size: 1.875rem;
+      margin-bottom: 22px;
+   }
+}
+
+@include breakpoint('mobile') {
+   .sub-title {
+      font-size: 1.438rem;
+      margin-bottom: 20px;
+   }
+}
