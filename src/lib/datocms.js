@@ -1,7 +1,7 @@
 import { cache } from 'react';
 
-const NEXT_DATOCMS_API_TOKEN = '08f9076720d0825680e558e9de0da8';
-const NEXT_DATOCMS_ENVIRONMENT = 'main';
+const NEXT_DATOCMS_API_TOKEN = process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN;
+const NEXT_DATOCMS_ENVIRONMENT = process.env.NEXT_PUBLIC_DATOCMS_ENVIRONMENT;
 
 const dedupedFetch = cache(async serializedInit => {
    const response = await fetch(

@@ -1,3 +1,5 @@
+'use client';
+
 import './form.scss';
 import Button from '../Button';
 import { ReactElement, ReactNode, useState } from 'react';
@@ -37,31 +39,39 @@ const Form = ({ title }: FormProps): ReactElement => {
          data.append(key, value);
       });
 
-      data.append('service_id', 'service_ylfb7k5');
-      data.append('template_id', 'template_4zaip1p');
-      data.append('user_id', 'rWyeA2XdvhB_fvPEW');
+      console.log(process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID);
+
+      data.append(
+         'service_id',
+         process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || '',
+      );
+      data.append(
+         'template_id',
+         process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || '',
+      );
+      data.append('user_id', process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID || '');
+
+      console.log(data);
 
       fetch(formURL, {
          method: 'POST',
          body: data,
-      })
-         .then(response => {
-            console.log(response);
-            if (response.ok) {
-               setFormData({
-                  name: '',
-                  email: '',
-                  message: '',
-               });
+      }).then(response => {
+         console.log(response);
+         if (response.ok) {
+            setFormData({
+               name: '',
+               email: '',
+               message: '',
+            });
 
-               setFormSubmitMessage('The form has been successfully sent');
-            }
-         })
-         .catch(error => {
+            setFormSubmitMessage('The form has been successfully sent');
+         } else {
             setFormSubmitMessage(
                'Something is wrong, please try send form later',
             );
-         });
+         }
+      });
    };
 
    return (
