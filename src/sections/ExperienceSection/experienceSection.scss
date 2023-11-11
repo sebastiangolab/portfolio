@@ -1,0 +1,134 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+#experience {
+   padding: 40px 40px 60px 40px;
+   border-radius: 30px;
+   background-color: colors.$secondary;
+
+   .sub-title {
+      color: colors.$white;
+      text-align: left;
+   }
+
+   .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 35px;
+      padding: 26px 27px;
+      border-radius: 10px;
+      background-color: colors.$page-background;
+      box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.15);
+
+      .label {
+         font-size: 0.875rem;
+         color: colors.$primary;
+         font-weight: map-get(fonts.$weights, 'regular');
+         margin-bottom: 7px;
+      }
+
+      .text {
+         font-size: 1.25rem;
+         font-weight: map-get(fonts.$weights, 'medium');
+      }
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+}
+
+@include breakpoint('laptop') {
+   #experience {
+      padding: 32px 38px 52px 38px;
+
+      .row {
+         padding: 24px 25px;
+         margin-bottom: 32px;
+
+         .label {
+            font-size: 0.813rem;
+         }
+
+         .text {
+            font-size: 1.125rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   #experience {
+      padding: 32px 35px 48px 35px;
+
+      .row {
+         padding: 22px 25px;
+         margin-bottom: 31px;
+
+         .label {
+            margin-bottom: 5px;
+         }
+
+         .text {
+            font-size: 1.063rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   #experience {
+      padding: 26px 30px 40px 30px;
+
+      .row {
+         padding: 19px 20px;
+         margin-bottom: 28px;
+
+         .label {
+            margin-bottom: 4px;
+         }
+
+         .label {
+            font-size: 0.75rem;
+         }
+
+         .text {
+            font-size: 0.938rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   #experience {
+      padding: 20px 13px 30px 13px;
+      border-radius: 20px;
+
+      .row {
+         grid-template-columns: 1fr;
+         padding: 15px 15px;
+         margin-bottom: 25px;
+
+         .column {
+            margin-bottom: 15px;
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+         }
+
+         .label {
+            margin-bottom: 4px;
+         }
+
+         .label {
+            font-size: 0.75rem;
+         }
+
+         .text {
+            font-size: 0.938rem;
+         }
+      }
+   }
+}
