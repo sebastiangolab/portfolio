@@ -78,8 +78,6 @@ const useNavigation = (): Results => {
    const handleLinkMouseEnter = (event: React.MouseEvent) => {
       let linkElement = event.currentTarget.querySelector('.nav-link');
 
-      console.log(linkElement);
-
       if (!linkElement) {
          linkElement = event.currentTarget;
       }

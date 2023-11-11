@@ -39,8 +39,6 @@ const Form = ({ title }: FormProps): ReactElement => {
          data.append(key, value);
       });
 
-      console.log(process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID);
-
       data.append(
          'service_id',
          process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || '',
@@ -51,13 +49,10 @@ const Form = ({ title }: FormProps): ReactElement => {
       );
       data.append('user_id', process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID || '');
 
-      console.log(data);
-
       fetch(formURL, {
          method: 'POST',
          body: data,
       }).then(response => {
-         console.log(response);
          if (response.ok) {
             setFormData({
                name: '',

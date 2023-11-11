@@ -10,10 +10,13 @@ export enum Breakpoints {
 
 const useBreakpoint = (min: Breakpoints, max?: Breakpoints) => {
    const [isBreakpoint, setIsBreakpoint] = useState<boolean>(checkBreakpoint());
-   console.log(isBreakpoint);
 
    function checkBreakpoint(): boolean {
-      const screenWidth = window.innerWidth;
+      let screenWidth = 0;
+
+      if (typeof window !== 'undefined') {
+         screenWidth = window.innerWidth;
+      }
 
       if (max !== undefined) {
          return screenWidth > min && screenWidth <= max;
