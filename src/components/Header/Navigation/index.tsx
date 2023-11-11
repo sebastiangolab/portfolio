@@ -12,9 +12,18 @@ const Navigation = () => {
       handleLinkClick,
       handleLinkMouseEnter,
       handleLinkMouseLeave,
+      hideActiveMark,
    } = useNavigation();
 
-   useLayoutEffect(setActiveCurrentPage, []);
+   useLayoutEffect(() => {
+      window.addEventListener('resize', hideActiveMark);
+
+      setActiveCurrentPage();
+
+      return () => {
+         window.removeEventListener('resize', hideActiveMark);
+      };
+   }, []);
 
    useEffect(setActiveMarkPosition, [activeHoverLink]);
 

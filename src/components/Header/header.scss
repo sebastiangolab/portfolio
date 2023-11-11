@@ -33,7 +33,11 @@
          width: 2px;
          height: 20px;
          background-color: colors.$primary;
-         transition: transform 0.3s, top 0.1s 0.3s;
+         transition: transform 0.3s, top 0.1s 0.3s, opacity 0.1s;
+
+         &.hide {
+            opacity: 0;
+         }
       }
 
       .container-link {
@@ -98,6 +102,10 @@
       }
 
       .nav {
+         #active-mark {
+            height: 17px;
+         }
+
          .container-link {
             padding: 3px 22px;
 

@@ -10,6 +10,7 @@ interface Results {
    handleLinkClick: (event: React.MouseEvent) => void;
    handleLinkMouseEnter: (event: React.MouseEvent) => void;
    handleLinkMouseLeave: () => void;
+   hideActiveMark: () => void;
 }
 
 const useNavigation = (): Results => {
@@ -75,7 +76,9 @@ const useNavigation = (): Results => {
    };
 
    const handleLinkMouseEnter = (event: React.MouseEvent) => {
-      let linkElement = event.currentTarget.querySelector('.link');
+      let linkElement = event.currentTarget.querySelector('.nav-link');
+
+      console.log(linkElement);
 
       if (!linkElement) {
          linkElement = event.currentTarget;
@@ -88,6 +91,12 @@ const useNavigation = (): Results => {
       setActiveHoverLink(activeLink);
    };
 
+   const hideActiveMark = () => {
+      const activeMarkElement = document.getElementById('active-mark');
+
+      activeMarkElement?.classList.add('hide');
+   };
+
    return {
       activeHoverLink,
       mobileNavOpen,
@@ -97,6 +106,7 @@ const useNavigation = (): Results => {
       handleLinkClick,
       handleLinkMouseEnter,
       handleLinkMouseLeave,
+      hideActiveMark,
    };
 };
 

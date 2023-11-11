@@ -25,13 +25,18 @@ const NavLink = ({
       <div
          id={`wrapper-${id}`}
          className="container-link"
-         onMouseEnter={handleMouseEnter}
-         onMouseLeave={handleMouseLeave}
+         onMouseEnter={isButton ? undefined : handleMouseEnter}
+         onMouseLeave={isButton ? undefined : handleMouseLeave}
       >
          {isButton ? (
             <Button text={text} href={href} title={text} />
          ) : (
-            <Link href={href} className="link" onClick={handleOnClick} id={id}>
+            <Link
+               href={href}
+               className="nav-link"
+               onClick={handleOnClick}
+               id={id}
+            >
                {text}
             </Link>
          )}
