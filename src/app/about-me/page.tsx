@@ -1,3 +1,12 @@
+import AboutContentSection from '@/sections/AboutContentSection';
+import ExperienceSection from '@/sections/ExperienceSection';
+
 export default function AboutMe() {
-   return <h1>About me</h1>;
+   return (
+      <div id="about">
+         <AboutContentSection />
+
+         <ExperienceSection />
+      </div>
+   );
 }

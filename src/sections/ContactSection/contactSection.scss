@@ -1,0 +1,116 @@
+@use '@/styles/variables/fonts.scss' as fonts;
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/breakpoints' as *;
+
+#contact {
+   display: flex;
+   align-items: center;
+   width: 100%;
+
+   .contact-content {
+      width: 410px;
+      margin-right: 60px;
+
+      .row {
+         margin-top: 25px;
+
+         .label {
+            font-size: 0.813rem;
+            font-weight: map-get(fonts.$weights, 'regular');
+            color: colors.$primary;
+            margin-bottom: 5px;
+         }
+
+         .value {
+            font-size: 1.125rem;
+            font-weight: map-get(fonts.$weights, 'medium');
+            line-height: 1.5em;
+            transition: color fonts.$hoverTransitionSec;
+
+            &:hover {
+               color: colors.$primary;
+            }
+         }
+
+         .socials {
+            margin-top: 10px;
+         }
+      }
+   }
+
+   .form-container {
+      flex: 1;
+   }
+}
+
+@include breakpoint('laptop') {
+   #contact {
+      .contact-content {
+         width: 370px;
+         margin-right: 50px;
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   #contact {
+      .contact-content {
+         width: 350px;
+         margin-right: 40px;
+
+         .row {
+            .value {
+               font-size: 1rem;
+            }
+         }
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   #contact {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .contact-content {
+         width: 100%;
+         margin-right: 0;
+
+         .row {
+            .label {
+               font-size: 0.75rem;
+            }
+
+            .value {
+               font-size: 0.938rem;
+            }
+         }
+      }
+
+      .form-container {
+         flex: 1;
+         margin-top: 40px;
+         width: 100%;
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   #contact {
+      .contact-content {
+         max-width: 100%;
+
+         .row {
+            margin-top: 20px;
+
+            .label {
+               font-size: 0.75rem;
+            }
+
+            .value {
+               font-size: 0.938rem;
+            }
+         }
+      }
+   }
+}
