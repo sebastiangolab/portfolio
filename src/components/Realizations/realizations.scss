@@ -1,0 +1,175 @@
+@use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/fonts' as fonts;
+@use '@/styles/variables/breakpoints' as *;
+
+.realizations {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 30px 25px;
+
+   .realization {
+      position: relative;
+
+      .image-wrapper {
+         position: relative;
+         border-radius: 10px;
+         box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.15);
+         height: 235px;
+         border: 1px solid #eee;
+
+         .hover-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 20px;
+            opacity: 0;
+            border-radius: 10px;
+            transition: opacity fonts.$hoverTransitionSec;
+
+            p {
+               color: colors.$white;
+               font-size: 1rem;
+               font-weight: map-get(fonts.$weights, 'regular');
+            }
+
+            .background {
+               position: absolute;
+               left: 0;
+               top: 0;
+               width: 100%;
+               height: 100%;
+               background-color: colors.$primary;
+               opacity: 0.9;
+               z-index: -1;
+               border-radius: 10px;
+            }
+         }
+
+         .image {
+            border-radius: 10px;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+         }
+      }
+
+      .realization-title {
+         font-size: 1rem;
+         margin-top: 15px;
+         font-weight: map-get(fonts.$weights, 'regular');
+      }
+
+      &:hover > .image-wrapper > .hover-content {
+         opacity: 1;
+      }
+   }
+
+   .fade-enter {
+      opacity: 0;
+   }
+
+   .fade-enter-active {
+      opacity: 1;
+      transition: opacity 300ms ease-in;
+   }
+
+   .fade-exit {
+      opacity: 1;
+   }
+
+   .fade-exit-active {
+      opacity: 0.01;
+      transition: opacity 300ms ease-in;
+   }
+}
+
+@include breakpoint('laptop') {
+   .realizations {
+      .realization {
+         .image-wrapper {
+            height: 195px;
+         }
+
+         .realization-title {
+            font-size: 0.875rem;
+            margin-top: 13px;
+         }
+      }
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .realizations {
+      .realization {
+         .image-wrapper {
+            height: 165px;
+
+            .hover-content {
+               p {
+                  font-size: 0.875rem;
+               }
+            }
+         }
+
+         .realization-title {
+            font-size: 0.813rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('tablet') {
+   .realizations {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 22px 25px;
+
+      .realization {
+         .image-wrapper {
+            height: 185px;
+         }
+
+         .realization-title {
+            margin-top: 12px;
+         }
+      }
+   }
+}
+
+@include breakpoint('mobile') {
+   .realizations {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 25px;
+      padding-top: 5px;
+
+      .realization {
+         display: flex;
+         flex-direction: column-reverse;
+
+         .image-wrapper {
+            height: auto;
+            min-height: 180px;
+         }
+
+         .realization-title {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+         }
+      }
+   }
+}
+
+@include breakpoint('min-mobile') {
+   .realizations {
+      grid-template-columns: 1fr;
+      grid-gap: 30px;
+   }
+}
