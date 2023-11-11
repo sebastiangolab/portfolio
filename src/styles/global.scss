@@ -1,5 +1,7 @@
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
+@use '@/styles/variables/layout.scss' as layout;
+@use '@/styles/variables/breakpoints' as *;
 
 *,
 *::before,
@@ -49,4 +51,44 @@ h6 {
 a {
    text-decoration: none;
    color: colors.$black;
+}
+
+.primary-color {
+   color: colors.$primary;
+}
+
+.secondary-color {
+   color: colors.$secondary;
+}
+
+.section {
+   margin-bottom: layout.$section-space;
+
+   &:last-child {
+      margin-bottom: 0;
+   }
+}
+
+@include breakpoint('laptop') {
+   .section {
+      margin-bottom: layout.$section-laptop-space;
+   }
+}
+
+@include breakpoint('small-desktop') {
+   .section {
+      margin-bottom: layout.$section-small-desktop-space;
+   }
+}
+
+@include breakpoint('tablet') {
+   .section {
+      margin-bottom: layout.$section-tablet-space;
+   }
+}
+
+@include breakpoint('mobile') {
+   .section {
+      margin-bottom: layout.$section-mobile-space;
+   }
 }
