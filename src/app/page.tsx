@@ -7,7 +7,7 @@ import RealizationsSection from '@/sections/RealizationsSection';
 
 export default function Home(): ReactElement {
    return (
-      <div id="home">
+      <div id="home-page">
          <HomeIntroSection />
 
          <EmployedBlockSection />

@@ -29,9 +29,12 @@ const FormInput = ({
 
    return (
       <div className="form-row">
-         <label className="label">{label}</label>
+         <label htmlFor={name} className="label">
+            {label}
+         </label>
          {isTextArea ? (
             <textarea
+               id={name}
                name={name}
                onChange={onChange}
                onInvalid={handleOnInvalid}
@@ -41,6 +44,7 @@ const FormInput = ({
             ></textarea>
          ) : (
             <input
+               id={name}
                type="text"
                name={name}
                onChange={onChange}

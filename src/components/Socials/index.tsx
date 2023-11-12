@@ -11,6 +11,8 @@ const Socials = () => (
          href="https://www.linkedin.com/in/sebastian-golab/"
          target="_blank"
          className="icon linkedin"
+         title="linkedin"
+         aria-label="My linkedin profile"
       >
          <LinkedinIcon />
       </Link>
@@ -19,6 +21,8 @@ const Socials = () => (
          href="https://github.com/sebastiangolab"
          target="_blank"
          className="icon git"
+         title="git"
+         aria-label="My git profile"
       >
          <GithubIcon />
       </Link>
@@ -27,6 +31,8 @@ const Socials = () => (
          href="https://www.instagram.com/seebastiangolab/"
          target="_blank"
          className="icon instagram"
+         title="instagram"
+         aria-label="My instagram profile"
       >
          <InstagramIcon />
       </Link>
@@ -35,6 +41,8 @@ const Socials = () => (
          href="https://www.facebook.com/golomp1997/"
          target="_blank"
          className="icon facebook"
+         title="facebook"
+         aria-label="My facebook profile"
       >
          <FacebookIcon />
       </Link>
