@@ -194,7 +194,7 @@
          background-color: colors.$page-background;
          border-top: 1px solid rgba(51, 51, 51, 0.3);
          z-index: 9999999999999999;
-         padding-bottom: 73px;
+         padding-bottom: 100px;
 
          #active-mark {
             display: none;
@@ -231,7 +231,7 @@
          top: 57px;
          height: calc(100vh - 57px);
          transition: transform 0.4s;
-         padding-bottom: 57px;
+         padding-bottom: 100px;
 
          .container-link {
             padding: 0;

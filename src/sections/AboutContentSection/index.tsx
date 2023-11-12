@@ -4,10 +4,8 @@ import './aboutContentSection.scss';
 import ImageWithSticker from '@/components/ImageWithSticker';
 import PageIntro from '@/components/PageIntro';
 import Paragraph from '@/components/Paragraph';
-import aboutImage from '@/assets/about-image.jpg';
-import aboutImageRetina from '@/assets/about-image@2x.jpg';
-import aboutImageMobile from '@/assets/about-image-mobile.jpg';
-import aboutImageMobileRetina from '@/assets/about-image-mobile@2x.jpg';
+import aboutImageRetina from '@/assets/about-image@2x.webp';
+import aboutImageMobileRetina from '@/assets/about-image-mobile@2x.webp';
 import useBreakpoint, { Breakpoints } from '@/hooks/useBreakpoint';
 
 const AboutContentSection = () => {
@@ -42,13 +40,18 @@ const AboutContentSection = () => {
          <div className="about-image">
             {isMobile ? (
                <ImageWithSticker
-                  src={aboutImageMobile.src}
-                  retinaSrc={aboutImageMobileRetina.src}
+                  src={aboutImageMobileRetina.src}
+                  width={737}
+                  height={434}
+                  blurDataURL={aboutImageMobileRetina.blurDataURL}
+                  isPriority
                />
             ) : (
                <ImageWithSticker
-                  src={aboutImage.src}
-                  retinaSrc={aboutImageRetina.src}
+                  src={aboutImageRetina.src}
+                  blurDataURL={aboutImageRetina.blurDataURL}
+                  isFill
+                  isPriority
                />
             )}
          </div>

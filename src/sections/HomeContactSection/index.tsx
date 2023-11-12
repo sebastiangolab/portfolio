@@ -1,16 +1,17 @@
 import './homeContactSection.scss';
-import contactImage from '@/assets/contact-image.jpg';
-import contactImageRetina from '@/assets/contact-image@2x.jpg';
+import contactImageRetina from '@/assets/contact-image@2x.webp';
 import SubTitle from '@/components/SubTitle';
 import Form from '@/components/Form';
+import Image from 'next/image';
 
 const HomeContactSection = () => (
    <div id="home-contact" className="section">
       <div className="form-image">
-         <img
-            src={contactImage.src}
-            srcSet={`${contactImageRetina.src} 2x`}
-            alt="my face avatar"
+         <Image
+            alt="photo introducing me"
+            src={contactImageRetina.src}
+            fill
+            loading="lazy"
             className="avatar"
          />
       </div>

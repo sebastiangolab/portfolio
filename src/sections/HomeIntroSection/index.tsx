@@ -1,10 +1,8 @@
 'use client';
 
 import './homeIntroSection.scss';
-import avatar from '@/assets/avatar.jpg';
-import avatarRetina from '@/assets/avatar@2x.jpg';
-import avatarMobile from '@/assets/avatar-mobile.jpg';
-import avatarMobileRetina from '@/assets/avatar-mobile@2x.jpg';
+import avatarRetina from '@/assets/avatar@2x.webp';
+import avatarMobileRetina from '@/assets/avatar-mobile@2x.webp';
 import Paragraph from '@/components/Paragraph';
 import Socials from '@/components/Socials';
 import { UserIcon } from '@/assets/user';
@@ -66,13 +64,18 @@ const HomeIntroSection = () => {
 
                {isMobile ? (
                   <ImageWithSticker
-                     retinaSrc={avatarMobileRetina.src}
-                     src={avatarMobile.src}
+                     src={avatarMobileRetina.src}
+                     width={737}
+                     height={434}
+                     blurDataURL={avatarMobileRetina.blurDataURL}
+                     isPriority
                   />
                ) : (
                   <ImageWithSticker
-                     retinaSrc={avatarRetina.src}
-                     src={avatar.src}
+                     src={avatarRetina.src}
+                     blurDataURL={avatarRetina.blurDataURL}
+                     isFill
+                     isPriority
                   />
                )}
             </div>
