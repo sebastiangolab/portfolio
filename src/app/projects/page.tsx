@@ -6,7 +6,7 @@ import RealizationsSection from '@/sections/RealizationsSection';
 
 export default function Projects() {
    return (
-      <div className="projects">
+      <div className="projects-page">
          <PageIntro
             title={
                <>

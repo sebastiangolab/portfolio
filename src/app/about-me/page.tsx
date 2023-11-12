@@ -5,7 +5,7 @@ import ExperienceSection from '@/sections/ExperienceSection';
 
 export default function AboutMe() {
    return (
-      <div id="about">
+      <div id="about-page">
          <AboutContentSection />
 
          <ExperienceSection />

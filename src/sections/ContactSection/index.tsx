@@ -6,7 +6,7 @@ import Socials from '@/components/Socials';
 import Link from 'next/link';
 
 const ContactSection = () => (
-   <div id="contact" className="section">
+   <div id="contact-section" className="section">
       <div className="contact-content">
          <PageIntro title={<span className="primary-color">Contact</span>}>
             <Paragraph>
