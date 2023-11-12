@@ -50,10 +50,20 @@ const Realizations = ({
 
                              <Image
                                 alt={`page ${title}`}
-                                className="image"
-                                height={218}
+                                className="image desktop-hide"
                                 src={image.url}
-                                width={409}
+                                width={517}
+                                height={262}
+                                loading="lazy"
+                             />
+
+                             <Image
+                                alt={`page ${title}`}
+                                className="image mobile-hide"
+                                src={image.url}
+                                width={414}
+                                height={233}
+                                loading="lazy"
                              />
                           </div>
 
