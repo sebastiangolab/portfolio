@@ -54,7 +54,6 @@ const Realizations = ({
                                 src={image.url}
                                 width={517}
                                 height={262}
-                                loading="lazy"
                              />
 
                              <Image
@@ -63,7 +62,6 @@ const Realizations = ({
                                 src={image.url}
                                 width={414}
                                 height={233}
-                                loading="lazy"
                              />
                           </div>
 
