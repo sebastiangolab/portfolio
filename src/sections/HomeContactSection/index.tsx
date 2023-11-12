@@ -8,11 +8,13 @@ const HomeContactSection = () => (
    <div id="home-contact" className="section">
       <div className="form-image">
          <Image
+            className="avatar"
             alt="photo introducing me"
             src={contactImageRetina.src}
             fill
             loading="lazy"
-            className="avatar"
+            placeholder="blur"
+            blurDataURL={contactImageRetina.blurDataURL}
          />
       </div>
 

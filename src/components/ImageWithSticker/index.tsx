@@ -2,34 +2,36 @@ import Image from 'next/image';
 import './imageWithSticker.scss';
 
 interface ImageWithStickerProps {
+   className?: string;
    src: string;
+   blurDataURL?: string;
    width?: number;
    height?: number;
    isPriority?: boolean;
-   blurDataURL?: string;
    isFill?: boolean;
 }
 
 const ImageWithSticker = ({
+   className,
    src,
-   isPriority,
+   blurDataURL,
    width,
    height,
-   blurDataURL,
+   isPriority,
    isFill,
 }: ImageWithStickerProps) => (
-   <div className="image-with-sticker">
+   <div className={`image-with-sticker ${className || ''}`}>
       <Image
-         alt="photo introducing me"
          className="avatar"
+         alt="photo introducing me"
          src={src}
-         fill={isFill}
-         loading={isPriority ? undefined : 'lazy'}
-         priority={isPriority}
          width={width}
          height={height}
          placeholder={blurDataURL ? 'blur' : 'empty'}
          blurDataURL={blurDataURL}
+         loading={isPriority ? undefined : 'lazy'}
+         priority={isPriority}
+         fill={isFill}
       />
 
       <div className="sticker">Frontend Developer</div>

@@ -69,6 +69,10 @@ a {
    }
 }
 
+.desktop-hide {
+   display: none;
+}
+
 @include breakpoint('laptop') {
    .section {
       margin-bottom: layout.$section-laptop-space;
@@ -90,5 +94,13 @@ a {
 @include breakpoint('mobile') {
    .section {
       margin-bottom: layout.$section-mobile-space;
+   }
+
+   .desktop-hide {
+      display: block;
+   }
+
+   .mobile-hide {
+      display: none;
    }
 }
