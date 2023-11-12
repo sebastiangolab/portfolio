@@ -16,7 +16,7 @@ const rows = [
    {
       name: 'Intermania Wadowice',
       position: 'Web Developer',
-      period: '01.09.2018 - 10.05.2022',
+      period: '01.09.2017 - 10.05.2022',
    },
 ];
 
