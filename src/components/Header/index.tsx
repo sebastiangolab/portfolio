@@ -7,7 +7,7 @@ import Navigation from './Navigation';
 
 const Header = (): ReactElement => {
    return (
-      <div className="header">
+      <div id="header" className="header">
          <Link href="/" className="logo">
             ImSebastian<span className="primary-color">.</span>
          </Link>

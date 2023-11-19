@@ -50,7 +50,7 @@ const RealizationsSection = ({ title, hasNewestOnly }: RealizationsSection) => {
                {hasNewestOnly ? (
                   <div className="see-more">
                      <Button
-                        href="/projects"
+                        href="/projects/#header"
                         text={'See all projects'}
                         title={'See all projects'}
                      />
