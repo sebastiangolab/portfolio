@@ -31,7 +31,7 @@ const NavLink = ({
          onMouseLeave={isButton ? undefined : handleMouseLeave}
       >
          {isButton ? (
-            <Button text={text} href={href} title={text} />
+            <Button text={text} href={href} title={text} target={target} />
          ) : (
             <Link
                href={href}
