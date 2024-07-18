@@ -78,11 +78,12 @@ const Navigation = () => {
             <NavLink
                id="cv"
                text="See my CV"
-               href="/cv-sebastian-golab.pdf"
+               href="/sebastian-golab-cv.pdf"
                handleOnClick={handleLinkClick}
                handleMouseEnter={handleLinkMouseEnter}
                handleMouseLeave={handleLinkMouseLeave}
                isButton
+               target="_blank"
             />
          </div>
       </>

@@ -8,19 +8,13 @@ export default function Projects() {
    return (
       <div className="projects-page">
          <PageIntro
-            title={
-               <>
-                  My <span className="primary-color">Projects</span>
-               </>
-            }
+            title={<span className="primary-color">Projects</span>}
             isSection
          >
             <Paragraph>
-               Explore my diverse portfolio, from easy resposnive sites to
-               innovative apps, wchich show my ability to adapt to different
-               requirements . To made my pages I use diffrenet technologies and
-               libraries to improve my skills. I make effective apps
-               consistently exceeding client expectations.
+               Explore my portfolio, where you will find commercial projects I
+               worked on, those I designed from the beginning, and those I did
+               privately as a hobby in free time.
             </Paragraph>
          </PageIntro>
 

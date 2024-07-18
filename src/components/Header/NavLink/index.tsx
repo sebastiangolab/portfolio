@@ -1,6 +1,6 @@
 import Button from '@/components/Button';
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import { HTMLAttributeAnchorTarget, ReactElement } from 'react';
 
 interface NavLink {
    id: string;
@@ -10,6 +10,7 @@ interface NavLink {
    handleMouseEnter: (event: React.MouseEvent) => void;
    handleMouseLeave: () => void;
    isButton?: boolean;
+   target?: HTMLAttributeAnchorTarget;
 }
 
 const NavLink = ({
@@ -20,6 +21,7 @@ const NavLink = ({
    handleMouseEnter,
    handleMouseLeave,
    isButton,
+   target,
 }: NavLink): ReactElement => {
    return (
       <div
@@ -36,6 +38,7 @@ const NavLink = ({
                className="nav-link"
                onClick={handleOnClick}
                id={id}
+               target={target}
             >
                {text}
             </Link>
