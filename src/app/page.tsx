@@ -15,7 +15,7 @@ export default function Home(): ReactElement {
          <RealizationsSection
             title={
                <>
-                  Newest <span className="primary-color">Projects</span>
+                  Some of the <span className="primary-color">Projects</span>
                </>
             }
             hasNewestOnly
