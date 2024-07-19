@@ -17,13 +17,13 @@ const rows = [
       name: 'Home.pl',
       position: 'Frontend developer',
       period: '10.05.2022 - now',
-      text: 'At Home.pl I work as frontend developer in team who work on one large e- commerce project, we make new solutions, develop our project in terms of performance and fix bugs. I cooperate with UX and UI designers and business teams to make best product for our clients.',
+      text: 'I work as a frontend developer in a team that develops an engine for building static websites based on CMS, design system and e-commerce functionalities for our product.',
    },
    {
       name: 'Intermania Wadowice',
       position: 'Web Developer',
       period: '01.09.2017 - 10.05.2022',
-      text: 'In Intermania i made many projects in Wordpress, every website was maked on template which i design in figma and wrote from zero. I participated in every website process from talking with clients to final product.',
+      text: 'I mainly coded websites based on the Wordpress CMS. I took an active part in every process of creating the website, from talking with client, creating design in Figma, to the final product.',
    },
 ];
 
