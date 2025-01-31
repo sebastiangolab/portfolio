@@ -15,6 +15,7 @@ http://sebastiangolab.pl/
 <ul>
   <li><a href="#built-with">React</a></li>
   <li><a href="#built-with">Next.js</a></li>
+  <li><a href="#built-with">Sass</a></li>
 </ul>
 
 <!-- GETTING STARTED -->
@@ -45,9 +46,11 @@ To get a local copy up and running follow these simple steps.
    npm install
    ```
 
-3. Start app in local
+3. Fill .env file
+
+4. Start app in local
    ```sh
-   npm run start
+   npm run dev
    ```
 
 <!-- CONTACT -->
