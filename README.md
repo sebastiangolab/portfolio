@@ -13,9 +13,9 @@ http://sebastiangolab.pl/
 ## Build With
 
 <ul>
-  <li><a href="#built-with">React</a></li>
-  <li><a href="#built-with">Next.js</a></li>
-  <li><a href="#built-with">Sass</a></li>
+  <li>React</li>
+  <li>Next.js</li>
+  <li>Sass</li>
 </ul>
 
 <!-- GETTING STARTED -->
@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple steps.
    npm install npm@latest -g
    ```
 
--  node - https://nodejs.org/en/download/
+-  node (project use version 20.17.0) - https://nodejs.org/en/download/
 
 ### Installation
 
