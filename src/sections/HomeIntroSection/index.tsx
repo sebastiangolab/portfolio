@@ -35,7 +35,7 @@ const HomeIntroSection = () => (
                   <div className="block-content">
                      <div className="label">Experience</div>
                      <div className="text">
-                        6 <span className="text-small">years</span>
+                        8 <span className="text-small">years</span>
                      </div>
                   </div>
                </div>
