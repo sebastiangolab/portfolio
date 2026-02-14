@@ -2,7 +2,7 @@
 
 import './form.scss';
 import Button from '../Button';
-import { ReactElement, ReactNode, useState } from 'react';
+import { ReactElement, ReactNode, useState, useCallback } from 'react';
 import FormInput from '@/components/FormInput';
 
 interface FormProps {
@@ -16,8 +16,9 @@ const Form = ({ title }: FormProps): ReactElement => {
       message: '',
    });
    const [formSubmitMessage, setFormSubmitMessage] = useState('');
+   const [isSubmitting, setIsSubmitting] = useState(false);
 
-   const handleOnChangeInput = (
+   const handleOnChangeInput = useCallback((
       event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
    ) => {
       const fieldName = event.target.name;
@@ -27,47 +28,44 @@ const Form = ({ title }: FormProps): ReactElement => {
          ...prevState,
          [fieldName]: fieldValue,
       }));
-   };
+   }, []);
 
-   const handleOnSubmit = (event: React.BaseSyntheticEvent) => {
+   const handleOnSubmit = useCallback(async (event: React.BaseSyntheticEvent) => {
       event.preventDefault();
 
-      const formURL = 'https://api.emailjs.com/api/v1.0/email/send-form';
-      const data = new FormData();
+      if (isSubmitting) return;
 
-      Object.entries(formData).forEach(([key, value]) => {
-         data.append(key, value);
-      });
+      setIsSubmitting(true);
+      setFormSubmitMessage('');
 
-      data.append(
-         'service_id',
-         process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || '',
-      );
-      data.append(
-         'template_id',
-         process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || '',
-      );
-      data.append('user_id', process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID || '');
+      try {
+         const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+         });
 
-      fetch(formURL, {
-         method: 'POST',
-         body: data,
-      }).then(response => {
+         const data = await response.json();
+
          if (response.ok) {
             setFormData({
                name: '',
                email: '',
                message: '',
             });
-
             setFormSubmitMessage('The form has been successfully sent');
          } else {
-            setFormSubmitMessage(
-               'Something is wrong, please try send form later',
-            );
+            setFormSubmitMessage(data.error || 'Something went wrong. Please try again later.');
          }
-      });
-   };
+      } catch (error) {
+         console.error('Form submission error:', error);
+         setFormSubmitMessage('Network error. Please check your connection and try again.');
+      } finally {
+         setIsSubmitting(false);
+      }
+   }, [formData, isSubmitting]);
 
    return (
       <div className="form-wrapper">
@@ -90,6 +88,7 @@ const Form = ({ title }: FormProps): ReactElement => {
             <FormInput
                label="Email"
                name="email"
+               type="email"
                value={formData.email}
                onChange={handleOnChangeInput}
                isRequired
@@ -101,12 +100,14 @@ const Form = ({ title }: FormProps): ReactElement => {
                value={formData.message}
                onChange={handleOnChangeInput}
                isTextArea
+               minLength={10}
             />
 
             <Button
-               text="Send message"
+               text={isSubmitting ? 'Sending...' : 'Send message'}
                title="send form message"
                isFormButton
+               disabled={isSubmitting}
             />
 
             {formSubmitMessage ? (

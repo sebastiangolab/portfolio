@@ -9,6 +9,9 @@ interface FormInputProps {
    ) => void;
    isRequired?: boolean;
    isTextArea?: boolean;
+   type?: 'text' | 'email';
+   minLength?: number;
+   maxLength?: number;
 }
 
 const FormInput = ({
@@ -18,9 +21,22 @@ const FormInput = ({
    onChange,
    isRequired,
    isTextArea,
+   type = 'text',
+   minLength,
+   maxLength,
 }: FormInputProps) => {
    const handleOnInvalid = (event: React.BaseSyntheticEvent) => {
-      event.target.setCustomValidity('This field is required');
+      if (event.target.validity.valueMissing) {
+         event.target.setCustomValidity('This field is required');
+      } else if (event.target.validity.typeMismatch) {
+         event.target.setCustomValidity('Please enter a valid email address');
+      } else if (event.target.validity.tooShort) {
+         event.target.setCustomValidity(
+            `Minimum length is ${minLength} characters`
+         );
+      } else {
+         event.target.setCustomValidity('Invalid input');
+      }
    };
 
    const handleOnInput = (e: React.BaseSyntheticEvent) => {
@@ -41,17 +57,21 @@ const FormInput = ({
                onInput={handleOnInput}
                value={value}
                required={isRequired}
+               minLength={minLength}
+               maxLength={maxLength}
             ></textarea>
          ) : (
             <input
                id={name}
-               type="text"
+               type={type}
                name={name}
                onChange={onChange}
                onInvalid={handleOnInvalid}
                onInput={handleOnInput}
                value={value}
                required={isRequired}
+               minLength={minLength}
+               maxLength={maxLength}
             />
          )}
       </div>
