@@ -6,6 +6,8 @@ const Navigation = () => {
    const {
       activeHoverLink,
       mobileNavOpen,
+      navRef,
+      activeMarkRef,
       setActiveCurrentPage,
       setActiveMarkPosition,
       handleHamburgerClick,
@@ -23,9 +25,9 @@ const Navigation = () => {
       return () => {
          window.removeEventListener('resize', hideActiveMark);
       };
-   }, []);
+   }, [hideActiveMark, setActiveCurrentPage]);
 
-   useEffect(setActiveMarkPosition, [activeHoverLink]);
+   useEffect(setActiveMarkPosition, [activeHoverLink, setActiveMarkPosition]);
 
    return (
       <>
@@ -36,8 +38,8 @@ const Navigation = () => {
             <span className="lines"></span>
          </div>
 
-         <div className={`nav ${mobileNavOpen ? 'open' : ''}`}>
-            <div id="active-mark"></div>
+         <nav ref={navRef} className={`nav ${mobileNavOpen ? 'open' : ''}`}>
+            <div ref={activeMarkRef} id="active-mark"></div>
 
             <NavLink
                id="home"
@@ -85,7 +87,7 @@ const Navigation = () => {
                isButton
                target="_blank"
             />
-         </div>
+         </nav>
       </>
    );
 };

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DEFAULT_FILTER, Realization } from '@/hooks/useRealizations';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useMemo } from 'react';
 
 interface RealizationsProps {
    realizationsData: Realization[] | null;
@@ -13,21 +14,22 @@ const Realizations = ({
    realizationsData,
    activeFilter,
 }: RealizationsProps) => {
-   const data =
-      activeFilter === DEFAULT_FILTER
-         ? realizationsData
-         : realizationsData?.filter((realization: Realization) => {
-              const filterRealizations = realization.technologies.filter(
-                 (technology: string) => technology === activeFilter,
-              );
+   // Memoize filtered data - only recalculate when inputs change
+   const data = useMemo(() => {
+      if (!realizationsData) return [];
 
-              return filterRealizations.length > 0;
-           }) || [];
+      if (activeFilter === DEFAULT_FILTER) {
+         return realizationsData;
+      }
+
+      return realizationsData.filter((realization: Realization) =>
+         realization.technologies.includes(activeFilter)
+      );
+   }, [realizationsData, activeFilter]);
 
    return (
       <TransitionGroup className="realizations">
-         {data
-            ? data.map((realization: Realization, index) => {
+         {data.map((realization: Realization, index) => {
                  const { image, link, title } = realization;
 
                  return (
@@ -54,6 +56,8 @@ const Realizations = ({
                                 src={image.url}
                                 width={517}
                                 height={262}
+                                loading="lazy"
+                                sizes="(max-width: 768px) 100vw, 517px"
                              />
 
                              <Image
@@ -62,6 +66,8 @@ const Realizations = ({
                                 src={image.url}
                                 width={414}
                                 height={233}
+                                loading="lazy"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 414px"
                              />
                           </div>
 
@@ -69,8 +75,7 @@ const Realizations = ({
                        </Link>
                     </CSSTransition>
                  );
-              })
-            : null}
+              })}
       </TransitionGroup>
    );
 };

@@ -1,5 +1,5 @@
 import './filters.scss';
-import { MouseEvent, ReactElement } from 'react';
+import { MouseEvent, ReactElement, useCallback, memo } from 'react';
 
 interface FiltersProps {
    elements: string[];
@@ -12,10 +12,10 @@ const Filters = ({
    activeElement,
    setActiveFilter,
 }: FiltersProps): ReactElement<FiltersProps> => {
-   const handleOnClick = (event: MouseEvent) => {
+   const handleOnClick = useCallback((event: MouseEvent) => {
       const target = event.currentTarget as HTMLInputElement;
       setActiveFilter(target.id);
-   };
+   }, [setActiveFilter]);
 
    return (
       <>
@@ -23,10 +23,10 @@ const Filters = ({
             Filtered by: <span className="primary-color">{activeElement}</span>
          </p>
          <div className="filters">
-            {elements.map((filter, index) => (
+            {elements.map((filter) => (
                <button
                   id={filter}
-                  key={`${filter}-${index}`}
+                  key={filter}
                   className={`option ${
                      filter === activeElement ? 'active' : ''
                   }`}
@@ -40,4 +40,4 @@ const Filters = ({
    );
 };
 
-export default Filters;
+export default memo(Filters);
