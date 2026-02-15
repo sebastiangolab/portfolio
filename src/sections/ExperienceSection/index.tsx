@@ -1,7 +1,6 @@
 'use client';
 
-import { MouseEvent } from 'react';
-import Paragraph from '@/components/Paragraph';
+import { MouseEvent, ReactNode } from 'react';
 import './experienceSection.scss';
 import SubTitle from '@/components/SubTitle';
 
@@ -9,21 +8,64 @@ interface Row {
    name: string;
    position: string;
    period: string;
-   text: string;
+   content: ReactNode;
 }
 
 const rows = [
    {
       name: 'Home.pl',
-      position: 'Frontend developer',
+      position: 'Software Engineer',
       period: '10.05.2022 - now',
-      text: 'I work as a frontend developer in a team that develops an engine for building static websites based on CMS, design system and e-commerce functionalities for our product.',
+      content: (
+         <>
+            <ul>
+               <li>Designed scalable multi-brand e-commerce architecture</li>
+               <li>
+                  Influenced architectural decisions around rendering, caching,
+                  and data flow
+               </li>
+               <li>
+                  Implemented SSG (Gatsby), SSR/ISR and caching improving
+                  performance and stability
+               </li>
+               <li>
+                  Created internal design system improving reuse and delivery
+                  speed
+               </li>
+               <li>Improved Core Web Vitals and reduced system complexity</li>
+               <li>
+                  Used AI tools (Claude, Copilot, MCP) to accelerate development
+                  and refactoring
+               </li>
+            </ul>
+         </>
+      ),
    },
    {
       name: 'Intermania Wadowice',
       position: 'Web Developer',
       period: '01.09.2017 - 10.05.2022',
-      text: 'I mainly coded websites based on the Wordpress CMS. I took an active part in every process of creating the website, from talking with client, creating design in Figma, to the final product.',
+      content: (
+         <>
+            <ul>
+               <li>
+                  Delivered production web applications and websites end-to-end
+               </li>
+               <li>
+                  Delivered production web applications and websites end-to-end
+               </li>
+               <li>
+                  Developed custom-coded WordPress themes from scratch, without
+                  page builders
+               </li>
+               <li>
+                  Worked directly with clients: requirements, UX/design,
+                  implementation and deployment
+               </li>
+               <li>Improved performance, SEO, and page speed</li>
+            </ul>
+         </>
+      ),
    },
 ];
 
@@ -54,7 +96,7 @@ const ExperienceSection = () => {
 
          {rows.map((row: Row, index: number) => (
             <div
-               className="row content-hide"
+               className="row"
                onClick={handleRowClick}
                key={`${row.name}-${index}`}
             >
@@ -78,7 +120,7 @@ const ExperienceSection = () => {
                </div>
 
                <div className="row-content">
-                  <Paragraph>{row.text}</Paragraph>
+                  <div className="paragraph">{row.content}</div>
                </div>
             </div>
          ))}

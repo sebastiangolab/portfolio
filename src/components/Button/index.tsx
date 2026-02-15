@@ -8,6 +8,7 @@ interface Button {
    title: string;
    isFormButton?: boolean;
    target?: HTMLAttributeAnchorTarget;
+   disabled?: boolean;
 }
 
 const Button = ({
@@ -16,11 +17,12 @@ const Button = ({
    title,
    isFormButton,
    target,
+   disabled,
 }: Button): ReactElement<Button> => {
    if (isFormButton) {
       return (
          <>
-            <button type="submit" title={title} className="button">
+            <button type="submit" title={title} className="button" disabled={disabled}>
                {text}
             </button>
          </>

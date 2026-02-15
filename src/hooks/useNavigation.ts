@@ -1,11 +1,9 @@
 import { usePathname } from 'next/navigation';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 interface Results {
    activeHoverLink: string;
    mobileNavOpen: boolean;
-   navRef: React.RefObject<HTMLElement>;
-   activeMarkRef: React.RefObject<HTMLDivElement>;
    setActiveCurrentPage: () => void;
    setActiveMarkPosition: () => void;
    handleHamburgerClick: () => void;
@@ -21,84 +19,87 @@ const useNavigation = (): Results => {
    const [activeHoverLink, setActiveHoverLink] = useState<string>('');
    const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
-   // Use refs instead of repeated DOM queries
-   const navRef = useRef<HTMLElement>(null);
-   const activeMarkRef = useRef<HTMLDivElement>(null);
-
-   const handleHamburgerClick = useCallback(() => {
+   const handleHamburgerClick = () => {
       setMobileNavOpen((prevState: boolean) => {
-         document.body.style.overflow = prevState ? 'visible' : 'hidden';
+         if (prevState) {
+            document.body.style.overflow = 'visible';
+         } else {
+            document.body.style.overflow = 'hidden';
+         }
+
          return !prevState;
       });
-   }, []);
+   };
 
-   const setActiveCurrentPage = useCallback(() => {
-      if (!navRef.current || !activeMarkRef.current) return;
-
-      const activeLinkElement = navRef.current.querySelector(
-         `[href='${pathname}']`,
-      ) as HTMLElement;
+   const setActiveCurrentPage = () => {
+      const activeLinkElement = document.querySelector(
+         `.nav [href='${pathname}']`,
+      );
 
       if (activeLinkElement && activeLinkElement.id !== activeLink) {
          const elementBounding = activeLinkElement.getBoundingClientRect();
          const leftPosition = elementBounding.left + elementBounding.width / 2;
 
-         activeMarkRef.current.style.top = '0';
-         activeMarkRef.current.style.transform = `translateX(${leftPosition}px)`;
+         const activeMarkElement = document.getElementById('active-mark');
+
+         if (activeMarkElement) {
+            activeMarkElement.style.top = '0';
+            activeMarkElement.style.transform = `translateX(${leftPosition}px)`;
+         }
 
          setActiveLink(activeLinkElement.id);
       }
-   }, [pathname, activeLink]);
+   };
 
-   const setActiveMarkPosition = useCallback(() => {
-      if (!activeHoverLink || !navRef.current || !activeMarkRef.current) return;
+   const setActiveMarkPosition = () => {
+      if (activeHoverLink) {
+         const activeLinkElement = document.querySelector(
+            `.nav #${activeHoverLink}`,
+         );
 
-      const activeLinkElement = navRef.current.querySelector(
-         `#${activeHoverLink}`,
-      ) as HTMLElement;
+         if (activeLinkElement) {
+            const elementBounding = activeLinkElement.getBoundingClientRect();
+            const leftPosition =
+               elementBounding.left + elementBounding.width / 2;
 
-      if (activeLinkElement) {
-         const elementBounding = activeLinkElement.getBoundingClientRect();
-         const leftPosition = elementBounding.left + elementBounding.width / 2;
-
-         activeMarkRef.current.style.transform = `translateX(${leftPosition}px)`;
+            const activeMarkElement = document.getElementById('active-mark');
+            if (activeMarkElement) {
+               activeMarkElement.style.transform = `translateX(${leftPosition}px)`;
+            }
+         }
       }
-   }, [activeHoverLink]);
+   };
 
-   const handleLinkClick = useCallback((event: React.MouseEvent) => {
+   const handleLinkClick = (event: React.MouseEvent) => {
       document.body.style.overflow = 'visible';
+
       setActiveLink(event.currentTarget.id);
       setMobileNavOpen(false);
-   }, []);
+   };
 
-   const handleLinkMouseEnter = useCallback((event: React.MouseEvent) => {
-      let linkElement = event.currentTarget.querySelector('.nav-link') as HTMLElement;
+   const handleLinkMouseEnter = (event: React.MouseEvent) => {
+      let linkElement = event.currentTarget.querySelector('.nav-link');
 
       if (!linkElement) {
-         linkElement = event.currentTarget as HTMLElement;
+         linkElement = event.currentTarget;
       }
 
-      setActiveHoverLink(linkElement?.id || '');
-   }, []);
+      setActiveHoverLink(linkElement ? linkElement.id : activeLink);
+   };
 
-   const handleLinkMouseLeave = useCallback(() => {
+   const handleLinkMouseLeave = () => {
       setActiveHoverLink(activeLink);
-   }, [activeLink]);
+   };
 
-   const hideActiveMark = useCallback(() => {
-      activeMarkRef.current?.classList.add('hide');
-   }, []);
+   const hideActiveMark = () => {
+      const activeMarkElement = document.getElementById('active-mark');
 
-   // Update active hover link when active link changes
-   useEffect(() => {
-      setActiveHoverLink(activeLink);
-   }, [activeLink]);
+      activeMarkElement?.classList.add('hide');
+   };
 
    return {
       activeHoverLink,
       mobileNavOpen,
-      navRef,
-      activeMarkRef,
       setActiveCurrentPage,
       setActiveMarkPosition,
       handleHamburgerClick,

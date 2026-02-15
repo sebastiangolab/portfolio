@@ -72,7 +72,7 @@ const Form = ({ title }: FormProps): ReactElement => {
          {title ? <h2 className="form-title">{title}</h2> : null}
 
          <form
-            accept-charset="UTF-8"
+            acceptCharset="UTF-8"
             method="POST"
             className="form"
             onSubmit={handleOnSubmit}

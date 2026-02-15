@@ -18,16 +18,22 @@ const AboutContentSection = () => (
             }
          >
             <Paragraph>
-               Hi, i am Sebastian Gołąb and i works as a programmer since 2017,
-               I specialize in as frontend developer who makes new projects and
-               advances existing ones. I am independent but also I good feel in
-               team work where together we can develop our competencies.
+               Software Engineer with 8+ years of experience building scalable
+               web applications and multi-brand platforms. Specialized in
+               TypeScript, React, and Next.js, with a strong focus on
+               architecture, performance, and long-term maintainability.
+               Experienced in modern rendering strategies (SSR/ISR/SSG),
+               caching, authentication, and API-driven systems. Frontend-strong,
+               fullstack-leaning engineer who leverages AI-assisted development
+               to build faster and smarter.
             </Paragraph>
 
             <Paragraph>
-               I am person who not only creates code, but also engages in the
-               full scope of the design process. I will be happy to share my
-               experience and knowledge to create unique solutions together.
+               <strong>CORE SKILLS</strong>
+               <br />
+               Scalable Web Architecture • Performance • API-driven Systems •
+               SSR/ISR/SSG • Caching • Auth & Access Control • Design Systems •
+               Maintainability • WCAG • SEO • AI-assisted Development
             </Paragraph>
          </PageIntro>
       </div>

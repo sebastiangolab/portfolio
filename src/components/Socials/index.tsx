@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { LinkedinIcon } from '@/assets/linkedin';
 import { GithubIcon } from '@/assets/github';
 import { InstagramIcon } from '@/assets/instagram';
-import { FacebookIcon } from '@/assets/facebook';
 
 const Socials = () => (
    <div className="socials">
@@ -35,16 +34,6 @@ const Socials = () => (
          aria-label="My instagram profile"
       >
          <InstagramIcon />
-      </Link>
-
-      <Link
-         href="https://www.facebook.com/golomp1997/"
-         target="_blank"
-         className="icon facebook"
-         title="facebook"
-         aria-label="My facebook profile"
-      >
-         <FacebookIcon />
       </Link>
    </div>
 );

@@ -20,10 +20,11 @@ const HomeIntroSection = () => (
             </h1>
 
             <Paragraph>
-               I am Sebastian Gołąb, experienced frontend developer who has
-               worked as a programmer since 2017. I like challenges and learning
-               new technologies. I made many projects. Let's turn ideas into
-               reality!
+               Software Engineer with 8+ years building scalable web
+               applications and multi-brand platforms. Specialized in
+               TypeScript, React, and Next.js with strong focus on architecture,
+               performance, and maintainable systems. Frontend-strong,
+               fullstack-leaning engineer using AI-assisted development.
             </Paragraph>
 
             <div className="info-blocks">
@@ -47,7 +48,7 @@ const HomeIntroSection = () => (
 
                   <div className="block-content">
                      <div className="label">Projects</div>
-                     <div className="text">+40</div>
+                     <div className="text">+30</div>
                   </div>
                </div>
             </div>

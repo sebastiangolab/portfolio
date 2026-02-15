@@ -34,7 +34,7 @@ const ImageWithSticker = ({
          fill={isFill}
       />
 
-      <div className="sticker">Frontend Developer</div>
+      <div className="sticker">Software Engineer</div>
    </div>
 );
 
