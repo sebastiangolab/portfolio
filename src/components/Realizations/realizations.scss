@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/fonts' as fonts;
 @use '@/styles/variables/breakpoints' as *;
@@ -37,7 +38,7 @@
             p {
                color: colors.$white;
                font-size: 1rem;
-               font-weight: map-get(fonts.$weights, 'regular');
+               font-weight: map.get(fonts.$weights, 'regular');
             }
 
             .background {
@@ -64,7 +65,7 @@
       .realization-title {
          font-size: 1rem;
          margin-top: 15px;
-         font-weight: map-get(fonts.$weights, 'regular');
+         font-weight: map.get(fonts.$weights, 'regular');
       }
 
       &:hover > .image-wrapper > .hover-content {

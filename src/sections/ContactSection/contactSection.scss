@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -16,14 +17,14 @@
 
          .label {
             font-size: 0.813rem;
-            font-weight: map-get(fonts.$weights, 'regular');
+            font-weight: map.get(fonts.$weights, 'regular');
             color: colors.$primary;
             margin-bottom: 5px;
          }
 
          .value {
             font-size: 1.125rem;
-            font-weight: map-get(fonts.$weights, 'medium');
+            font-weight: map.get(fonts.$weights, 'medium');
             line-height: 1.5em;
             transition: color fonts.$hoverTransitionSec;
 

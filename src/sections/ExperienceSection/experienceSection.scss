@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -28,13 +29,13 @@
          .label {
             font-size: 0.875rem;
             color: colors.$primary;
-            font-weight: map-get(fonts.$weights, 'regular');
+            font-weight: map.get(fonts.$weights, 'regular');
             margin-bottom: 7px;
          }
 
          .text {
             font-size: 1.25rem;
-            font-weight: map-get(fonts.$weights, 'medium');
+            font-weight: map.get(fonts.$weights, 'medium');
          }
 
          .arrow-icon {
@@ -53,10 +54,7 @@
 
       .row-content {
          display: block;
-
-         & > p {
-            padding-top: 18px;
-         }
+         padding-top: 18px;
       }
 
       &.content-hide > .row-content {
@@ -170,9 +168,7 @@
          }
 
          .row-content {
-            & > p {
-               padding-top: 0;
-            }
+            padding-top: 0;
          }
       }
    }

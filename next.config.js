@@ -1,11 +1,15 @@
 module.exports = {
    distDir: 'dist',
    productionBrowserSourceMaps: false,
-   swcMinify: true,
    compress: true,
 
    images: {
-      domains: ['www.datocms-assets.com'],
+      remotePatterns: [
+         {
+            protocol: 'https',
+            hostname: 'www.datocms-assets.com',
+         },
+      ],
       deviceSizes: [550, 768, 992, 1200, 1470, 1920, 3048],
       formats: ['image/avif', 'image/webp'],
    },

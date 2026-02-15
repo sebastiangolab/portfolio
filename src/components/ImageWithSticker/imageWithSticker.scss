@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -22,7 +23,7 @@
       bottom: 19px;
       font-size: 1.25rem;
       line-height: 1em;
-      font-weight: map-get(fonts.$weights, 'medium');
+      font-weight: map.get(fonts.$weights, 'medium');
       padding: 15px 40px;
       border-radius: 30px;
       background-color: colors.$primary;

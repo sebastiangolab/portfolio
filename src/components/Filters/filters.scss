@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/fonts' as fonts;
 @use '@/styles/variables/breakpoints' as *;
@@ -13,7 +14,7 @@
    .option {
       font-size: 1.063rem;
       margin-left: 27px;
-      font-weight: map-get(fonts.$weights, 'regular');
+      font-weight: map.get(fonts.$weights, 'regular');
       padding: 12px 26px;
       color: colors.$black;
       background-color: colors.$white;

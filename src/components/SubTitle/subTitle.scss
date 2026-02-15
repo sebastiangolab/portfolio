@@ -1,9 +1,10 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/breakpoints' as *;
 
 .sub-title {
    font-size: 2.5rem;
-   font-weight: map-get(fonts.$weights, 'medium');
+   font-weight: map.get(fonts.$weights, 'medium');
    margin-bottom: 35px;
 
    &.center {

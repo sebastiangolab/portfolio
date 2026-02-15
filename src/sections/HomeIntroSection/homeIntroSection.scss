@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -16,8 +17,8 @@
          max-width: 550px;
 
          .title {
-            font-size: 5rem;
-            font-weight: map-get(fonts.$weights, 'bold');
+            font-size: 4rem;
+            font-weight: map.get(fonts.$weights, 'bold');
             color: colors.$black;
             line-height: 1.15em;
          }
@@ -35,7 +36,7 @@
             border-top: 1px solid rgba(colors.$black, 0.3);
 
             .block {
-               padding: 22px 30px;
+               padding: 20px 30px;
                display: flex;
                align-items: center;
                border-radius: 20px;
@@ -51,13 +52,13 @@
 
                   .label {
                      font-size: 0.938rem;
-                     font-weight: map-get(fonts.$weights, 'medium');
+                     font-weight: map.get(fonts.$weights, 'medium');
                      margin-bottom: 6px;
                   }
 
                   .text {
                      font-size: 2.375rem;
-                     font-weight: map-get(fonts.$weights, 'bold');
+                     font-weight: map.get(fonts.$weights, 'bold');
 
                      .text-small {
                         font-size: 1.25rem;
@@ -114,7 +115,7 @@
                grid-gap: 40px;
 
                .block {
-                  padding: 20px 25px;
+                  padding: 18px 25px;
 
                   .icon {
                      margin-right: 25px;

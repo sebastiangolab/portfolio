@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -11,7 +12,7 @@
 
    .form-title {
       font-size: 1.563rem;
-      font-weight: map-get(fonts.$weights, 'medium');
+      font-weight: map.get(fonts.$weights, 'medium');
       margin-bottom: 25px;
    }
 
@@ -19,7 +20,7 @@
       .message {
          margin-top: 25px;
          font-size: 0.875rem;
-         font-weight: map-get(fonts.$weights, 'regular');
+         font-weight: map.get(fonts.$weights, 'regular');
       }
    }
 }

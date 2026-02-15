@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $breakpoints: (
    'min-mobile': 549px,
    'mobile': 767px,
@@ -7,15 +9,15 @@ $breakpoints: (
 ) !default;
 
 @mixin breakpoint($max, $min: null) {
-   @if map-has-key($breakpoints, $max) {
+   @if map.has-key($breakpoints, $max) {
       @if $min {
-         @if map-has-key($breakpoints, $min) {
-            @media (min-width: map-get($breakpoints, $min)) and (max-width: map-get($breakpoints, $max)) {
+         @if map.has-key($breakpoints, $min) {
+            @media (min-width: map.get($breakpoints, $min)) and (max-width: map.get($breakpoints, $max)) {
                @content;
             }
          }
       } @else {
-         @media (max-width: map-get($breakpoints, $max)) {
+         @media (max-width: map.get($breakpoints, $max)) {
             @content;
          }
       }

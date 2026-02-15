@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -18,7 +19,7 @@
       padding-top: 5px;
       font-size: 2.188rem;
       line-height: 1em;
-      font-weight: map-get(fonts.$weights, 'medium');
+      font-weight: map.get(fonts.$weights, 'medium');
    }
 }
 
@@ -89,7 +90,7 @@
       }
 
       .text {
-         font-size: 1rem;
+         font-size: 1.25rem;
          line-height: 1.5em;
          padding-top: 2px;
       }

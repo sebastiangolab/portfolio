@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -5,7 +6,7 @@
 .button {
    display: inline-block;
    font-size: 1rem;
-   font-weight: map-get(fonts.$weights, 'regular');
+   font-weight: map.get(fonts.$weights, 'regular');
    line-height: 1em;
    font-size: 15px;
    color: colors.$black;

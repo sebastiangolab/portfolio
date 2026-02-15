@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts' as fonts;
 @use '@/styles/variables/breakpoints' as *;
 
@@ -8,7 +9,7 @@
 
    .title {
       font-size: 3.125rem;
-      font-weight: map-get(fonts.$weights, 'medium');
+      font-weight: map.get(fonts.$weights, 'medium');
       margin-bottom: 20px;
    }
 }

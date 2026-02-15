@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/variables/fonts.scss' as fonts;
 @use '@/styles/variables/colors.scss' as colors;
 @use '@/styles/variables/breakpoints' as *;
@@ -10,7 +11,7 @@
    .label {
       color: colors.$black;
       font-size: 0.875rem;
-      font-weight: map-get(fonts.$weights, 'regular');
+      font-weight: map.get(fonts.$weights, 'regular');
       margin-bottom: 5px;
       line-height: 1.5em;
    }
