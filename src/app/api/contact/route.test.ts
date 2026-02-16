@@ -9,7 +9,6 @@ vi.mock('@/lib/email', () => ({
 }));
 
 describe('POST /api/contact', () => {
-
    const validFormData = {
       name: 'John Doe',
       email: 'john@example.com',

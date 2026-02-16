@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
  * @returns A mock NextRequest object
  */
 export const createMockRequest = (body: any): NextRequest => {
-  return {
-    json: async () => body,
-  } as NextRequest;
+   return {
+      json: async () => body,
+   } as NextRequest;
 };

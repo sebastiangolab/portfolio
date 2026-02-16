@@ -18,54 +18,62 @@ const Form = ({ title }: FormProps): ReactElement => {
    const [formSubmitMessage, setFormSubmitMessage] = useState('');
    const [isSubmitting, setIsSubmitting] = useState(false);
 
-   const handleOnChangeInput = useCallback((
-      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-   ) => {
-      const fieldName = event.target.name;
-      const fieldValue = event.target.value;
+   const handleOnChangeInput = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+         const fieldName = event.target.name;
+         const fieldValue = event.target.value;
 
-      setFormData(prevState => ({
-         ...prevState,
-         [fieldName]: fieldValue,
-      }));
-   }, []);
+         setFormData(prevState => ({
+            ...prevState,
+            [fieldName]: fieldValue,
+         }));
+      },
+      [],
+   );
 
-   const handleOnSubmit = useCallback(async (event: React.BaseSyntheticEvent) => {
-      event.preventDefault();
+   const handleOnSubmit = useCallback(
+      async (event: React.BaseSyntheticEvent) => {
+         event.preventDefault();
 
-      if (isSubmitting) return;
+         if (isSubmitting) return;
 
-      setIsSubmitting(true);
-      setFormSubmitMessage('');
+         setIsSubmitting(true);
+         setFormSubmitMessage('');
 
-      try {
-         const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-         });
-
-         const data = await response.json();
-
-         if (response.ok) {
-            setFormData({
-               name: '',
-               email: '',
-               message: '',
+         try {
+            const response = await fetch('/api/contact', {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(formData),
             });
-            setFormSubmitMessage('The form has been successfully sent');
-         } else {
-            setFormSubmitMessage(data.error || 'Something went wrong. Please try again later.');
+
+            const data = await response.json();
+
+            if (response.ok) {
+               setFormData({
+                  name: '',
+                  email: '',
+                  message: '',
+               });
+               setFormSubmitMessage('The form has been successfully sent');
+            } else {
+               setFormSubmitMessage(
+                  data.error || 'Something went wrong. Please try again later.',
+               );
+            }
+         } catch (error) {
+            console.error('Form submission error:', error);
+            setFormSubmitMessage(
+               'Network error. Please check your connection and try again.',
+            );
+         } finally {
+            setIsSubmitting(false);
          }
-      } catch (error) {
-         console.error('Form submission error:', error);
-         setFormSubmitMessage('Network error. Please check your connection and try again.');
-      } finally {
-         setIsSubmitting(false);
-      }
-   }, [formData, isSubmitting]);
+      },
+      [formData, isSubmitting],
+   );
 
    return (
       <div className="form-wrapper">

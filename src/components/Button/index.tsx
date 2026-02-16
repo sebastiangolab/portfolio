@@ -22,7 +22,12 @@ const Button = ({
    if (isFormButton) {
       return (
          <>
-            <button type="submit" title={title} className="button" disabled={disabled}>
+            <button
+               type="submit"
+               title={title}
+               className="button"
+               disabled={disabled}
+            >
                {text}
             </button>
          </>

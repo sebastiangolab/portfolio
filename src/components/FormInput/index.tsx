@@ -32,7 +32,7 @@ const FormInput = ({
          event.target.setCustomValidity('Please enter a valid email address');
       } else if (event.target.validity.tooShort) {
          event.target.setCustomValidity(
-            `Minimum length is ${minLength} characters`
+            `Minimum length is ${minLength} characters`,
          );
       } else {
          event.target.setCustomValidity('Invalid input');

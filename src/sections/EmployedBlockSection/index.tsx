@@ -7,8 +7,7 @@ const EmployedBlockSection = () => (
          <BuildingIcon />
       </div>
       <p className="text">
-         Currently employed in:{' '}
-         <span className="secondary-color">Home.pl</span>
+         Currently employed in: <span className="secondary-color">Home.pl</span>
       </p>
    </div>
 );

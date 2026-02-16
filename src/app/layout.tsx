@@ -9,7 +9,7 @@ const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'] });
 export const metadata = {
    title: 'Sebastian Golab',
    description:
-      "Experienced Software Engineer specializing in React, Next.js, TypeScript, and Node.js. Building scalable web applications and e-commerce platforms since 2017.",
+      'Experienced Software Engineer specializing in React, Next.js, TypeScript, and Node.js. Building scalable web applications and e-commerce platforms since 2017.',
 };
 
 export default function RootLayout({

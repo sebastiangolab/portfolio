@@ -74,7 +74,7 @@ const useRealizations = (): HookResult => {
    // Memoize newest realizations
    const newestRealizations = useMemo(
       () => allRealizations?.slice(0, 6) || [],
-      [allRealizations]
+      [allRealizations],
    );
 
    return {

@@ -7,6 +7,7 @@ This project uses **Vitest** + **React Testing Library** + **MSW** for testing.
 ## When to use which mocking strategy?
 
 ### Use MSW (Mock Service Worker) when:
+
 - Testing components that fetch data
 - Testing custom hooks making API calls
 - You want realistic network behavior
@@ -15,6 +16,7 @@ This project uses **Vitest** + **React Testing Library** + **MSW** for testing.
 **Example:** Tests for `useRealizations`, `Form` component
 
 ### Use `global.fetch = vi.fn()` when:
+
 - Testing API route handlers directly
 - You need precise control over response timing
 - Testing error scenarios difficult to simulate with MSW
@@ -26,6 +28,7 @@ This project uses **Vitest** + **React Testing Library** + **MSW** for testing.
 ## Shared Test Utilities
 
 ### `createMockRequest(body)`
+
 **Location:** `@/tests/utils`
 
 Creates a mock NextRequest for testing API routes.

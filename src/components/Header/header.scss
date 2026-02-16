@@ -34,7 +34,10 @@
          width: 2px;
          height: 20px;
          background-color: colors.$primary;
-         transition: transform 0.3s, top 0.1s 0.3s, opacity 0.1s;
+         transition:
+            transform 0.3s,
+            top 0.1s 0.3s,
+            opacity 0.1s;
 
          &.hide {
             opacity: 0;
@@ -149,7 +152,9 @@
                right: 0;
                height: 2px;
                background-color: colors.$primary;
-               transition: width 0.1s linear, transform 0.3s linear 0.1s;
+               transition:
+                  width 0.1s linear,
+                  transform 0.3s linear 0.1s;
             }
 
             &::before {

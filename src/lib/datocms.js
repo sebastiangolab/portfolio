@@ -15,11 +15,7 @@ const dedupedFetch = cache(async serializedInit => {
    return responseBody;
 });
 
-export async function performRequest({
-   query,
-   variables = {},
-   revalidate,
-}) {
+export async function performRequest({ query, variables = {}, revalidate }) {
    const { data } = await dedupedFetch(
       JSON.stringify({
          method: 'POST',

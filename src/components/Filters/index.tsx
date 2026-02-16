@@ -12,10 +12,13 @@ const Filters = ({
    activeElement,
    setActiveFilter,
 }: FiltersProps): ReactElement<FiltersProps> => {
-   const handleOnClick = useCallback((event: MouseEvent) => {
-      const target = event.currentTarget as HTMLInputElement;
-      setActiveFilter(target.id);
-   }, [setActiveFilter]);
+   const handleOnClick = useCallback(
+      (event: MouseEvent) => {
+         const target = event.currentTarget as HTMLInputElement;
+         setActiveFilter(target.id);
+      },
+      [setActiveFilter],
+   );
 
    return (
       <>
@@ -23,7 +26,7 @@ const Filters = ({
             Filtered by: <span className="primary-color">{activeElement}</span>
          </p>
          <div className="filters">
-            {elements.map((filter) => (
+            {elements.map(filter => (
                <button
                   id={filter}
                   key={filter}
