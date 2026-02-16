@@ -1,4 +1,4 @@
-# Portfolio - Sebastian Gołąb
+# Portfolio - Sebastian Golab
 
 A modern, performant portfolio website showcasing projects, experience, and professional journey. Built with Next.js 13 App Router, TypeScript, and DatoCMS for dynamic content management.
 
@@ -147,7 +147,7 @@ Server-side environment variables (used in API routes):
 
 ## 📧 Contact
 
-**Sebastian Gołąb**
+**Sebastian Golab**
 - Email: sebagolab97@gmail.com
 - Website: [sebastiangolab.pl](http://sebastiangolab.pl/)
 - GitHub: [@sebastiangolab](https://github.com/sebastiangolab)

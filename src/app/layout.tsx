@@ -7,9 +7,9 @@ import '@/styles/global.scss';
 const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'] });
 
 export const metadata = {
-   title: 'Sebastian Gołąb',
+   title: 'Sebastian Golab',
    description:
-      "Experienced software engineer who has worked as a programmer since 2017. I like challenges and learning new technologies. Let's turn ideas into reality!",
+      "Experienced Software Engineer specializing in React, Next.js, TypeScript, and Node.js. Building scalable web applications and e-commerce platforms since 2017.",
 };
 
 export default function RootLayout({
