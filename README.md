@@ -18,7 +18,7 @@ A modern, performant portfolio website showcasing projects, experience, and prof
 
 ### Data & Services
 - **[DatoCMS](https://www.datocms.com/)** - Headless CMS with GraphQL API
-- **[EmailJS](https://www.emailjs.com/)** - Contact form email service
+- **[Nodemailer](https://nodemailer.com/)** - Server-side email sending via SMTP
 
 ### Testing
 - **[Vitest 2.1.8](https://vitest.dev/)** - Fast unit test runner
@@ -79,10 +79,14 @@ portfolio/
    DATOCMS_API_TOKEN=your_datocms_token
    DATOCMS_ENVIRONMENT=main
 
-   # EmailJS Configuration
-   EMAIL_JS_SERVICE_ID=your_service_id
-   EMAIL_JS_TEMPLATE_ID=your_template_id
-   EMAIL_JS_USER_ID=your_public_key
+   # Nodemailer SMTP Configuration
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_SECURE=false
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASS=your-app-password
+   EMAIL_FROM=your-email@gmail.com
+   EMAIL_TO=admin@example.com
    ```
 
 4. **Start the development server**
@@ -137,13 +141,24 @@ For detailed testing guidelines, see [src/tests/README.md](src/tests/README.md).
 
 Server-side environment variables (used in API routes):
 
+### DatoCMS Configuration
+
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `DATOCMS_API_TOKEN` | DatoCMS read-only API token | Yes |
 | `DATOCMS_ENVIRONMENT` | DatoCMS environment name | No |
-| `EMAIL_JS_SERVICE_ID` | EmailJS service identifier | Yes |
-| `EMAIL_JS_TEMPLATE_ID` | EmailJS template identifier | Yes |
-| `EMAIL_JS_USER_ID` | EmailJS public key | Yes |
+
+### Email Configuration (Nodemailer SMTP)
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `SMTP_HOST` | SMTP server hostname (e.g., `smtp.gmail.com`) | Yes |
+| `SMTP_PORT` | SMTP server port (587 for TLS, 465 for SSL) | Yes |
+| `SMTP_SECURE` | Use SSL connection (`true` for 465, `false` for 587) | Yes |
+| `SMTP_USER` | SMTP authentication username | Yes |
+| `SMTP_PASS` | SMTP authentication password | Yes |
+| `EMAIL_FROM` | Sender email address (must be verified) | Yes |
+| `EMAIL_TO` | Recipient email for contact form submissions | Yes |
 
 ## 📧 Contact
 

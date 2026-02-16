@@ -12,6 +12,6 @@ describe('Vitest Setup', () => {
 
    it('should have access to environment variables', () => {
       expect(process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN).toBe('test-token');
-      expect(process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID).toBe('test-service');
+      expect(process.env.SMTP_HOST).toBe('smtp.test.com');
    });
 });

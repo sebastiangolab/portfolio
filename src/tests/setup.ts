@@ -71,14 +71,17 @@ vi.mock('*.css', () => ({}));
 
 // Mock environment variables
 process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN = 'test-token';
-process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID = 'test-service';
-process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID = 'test-template';
-process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID = 'test-user';
 process.env.DATOCMS_API_TOKEN = 'test-token';
 process.env.DATOCMS_ENVIRONMENT = 'test-environment';
-process.env.EMAIL_JS_SERVICE_ID = 'test-service';
-process.env.EMAIL_JS_TEMPLATE_ID = 'test-template';
-process.env.EMAIL_JS_USER_ID = 'test-user';
+
+// Nodemailer SMTP configuration
+process.env.SMTP_HOST = 'smtp.test.com';
+process.env.SMTP_PORT = '587';
+process.env.SMTP_SECURE = 'false';
+process.env.SMTP_USER = 'test@example.com';
+process.env.SMTP_PASS = 'test-password';
+process.env.EMAIL_FROM = 'noreply@test.com';
+process.env.EMAIL_TO = 'admin@test.com';
 
 // Start MSW server before all tests
 beforeAll(() => server.listen({ onUnhandledRequest: 'warn' }));

@@ -54,11 +54,6 @@ export const handlers = [
       return HttpResponse.json({ data: {} });
    }),
 
-   // Mock EmailJS API
-   http.post('https://api.emailjs.com/api/v1.0/email/send-form', () => {
-      return HttpResponse.json({ success: true }, { status: 200 });
-   }),
-
    // Mock contact API route
    http.post('/api/contact', async ({ request }) => {
       const body = (await request.json()) as any;
@@ -68,18 +63,21 @@ export const handlers = [
       if (!name || name.length < 2) {
          return HttpResponse.json(
             { error: 'Name must be at least 2 characters' },
-            { status: 400 }
+            { status: 400 },
          );
       }
 
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-         return HttpResponse.json({ error: 'Invalid email address' }, { status: 400 });
+         return HttpResponse.json(
+            { error: 'Invalid email address' },
+            { status: 400 },
+         );
       }
 
       if (!message || message.length < 10) {
          return HttpResponse.json(
             { error: 'Message must be at least 10 characters' },
-            { status: 400 }
+            { status: 400 },
          );
       }
 
