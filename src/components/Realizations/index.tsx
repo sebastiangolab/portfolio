@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DEFAULT_FILTER, Realization } from '@/hooks/useRealizations';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useMemo } from 'react';
+import { useMemo, createRef } from 'react';
 
 interface RealizationsProps {
    realizationsData: Realization[] | null;
@@ -31,14 +31,17 @@ const Realizations = ({
       <TransitionGroup className="realizations">
          {data.map((realization: Realization, index) => {
             const { image, link, title } = realization;
+            const nodeRef = createRef<HTMLAnchorElement>();
 
             return (
                <CSSTransition
                   classNames="fade"
                   key={`${title}-${index}`}
                   timeout={{ enter: 300, exit: 300 }}
+                  nodeRef={nodeRef}
                >
                   <Link
+                     ref={nodeRef}
                      className="realization"
                      href={link}
                      target="_blank"
