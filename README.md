@@ -1,60 +1,161 @@
-<!-- ABOUT THE PROJECT -->
+# Portfolio - Sebastian Gołąb
 
-## About The Project
+A modern, performant portfolio website showcasing projects, experience, and professional journey. Built with Next.js 13 App Router, TypeScript, and DatoCMS for dynamic content management.
 
-My portfolio page
+**Live Site:** [sebastiangolab.pl](http://sebastiangolab.pl/)
 
-### Project Link
+## 🚀 Tech Stack
 
-http://sebastiangolab.pl/
+### Core
+- **[Next.js 13.4.7](https://nextjs.org/)** - React framework with App Router
+- **[React 18.2.0](https://react.dev/)** - UI library
+- **[TypeScript 5.1.6](https://www.typescriptlang.org/)** - Type safety with strict mode
+- **[Node.js 20.17.0](https://nodejs.org/)** - Runtime environment
 
-<!-- BUILD WITH -->
+### Styling
+- **[Sass](https://sass-lang.com/)** - CSS preprocessor with global variables
+- **Custom Design System** - Consistent colors, typography, and spacing tokens
 
-## Build With
+### Data & Services
+- **[DatoCMS](https://www.datocms.com/)** - Headless CMS with GraphQL API
+- **[EmailJS](https://www.emailjs.com/)** - Contact form email service
 
-<ul>
-  <li>React</li>
-  <li>Next.js</li>
-  <li>Sass</li>
-</ul>
+### Testing
+- **[Vitest 2.1.8](https://vitest.dev/)** - Fast unit test runner
+- **[React Testing Library 16.1.0](https://testing-library.com/)** - Component testing
+- **[MSW 2.8.0](https://mswjs.io/)** - API mocking
+- **[Happy DOM 17.0.0](https://github.com/capricorn86/happy-dom)** - Lightweight DOM simulation
 
-<!-- GETTING STARTED -->
+## 📁 Project Structure
 
-## Getting Started
+```
+portfolio/
+├── src/
+│   ├── app/              # Next.js 13 App Router pages
+│   │   ├── page.tsx      # Homepage
+│   │   ├── about-me/     # About page
+│   │   ├── projects/     # Projects listing
+│   │   ├── contact/      # Contact page
+│   │   └── layout.tsx    # Root layout
+│   ├── components/       # Reusable UI components
+│   ├── sections/         # Page-specific sections
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utilities and API clients
+│   ├── styles/           # Global styles and variables
+│   ├── assets/           # Images and icons
+│   └── tests/             # Test setup and mocks
+├── public/               # Static files
+├── dist/                 # Production build output
+```
 
-To get a local copy up and running follow these simple steps.
+## 🛠️ Getting Started
 
 ### Prerequisites
 
--  npm
-
-   ```sh
-   npm install npm@latest -g
-   ```
-
--  node (project use version 20.17.0) - https://nodejs.org/en/download/
+- **Node.js 20.17.0** - Use [nvm](https://github.com/nvm-sh/nvm) for version management:
+  ```bash
+  nvm use
+  ```
+- **npm** - Package manager (comes with Node.js)
 
 ### Installation
 
-1. Clone the repo
-   ```sh
+1. **Clone the repository**
+   ```bash
    git clone https://github.com/sebastiangolab/portfolio.git
+   cd portfolio
    ```
-2. Install NPM packages
 
-   ```sh
+2. **Install dependencies**
+   ```bash
    npm install
    ```
 
-3. Fill .env file
+3. **Set up environment variables**
 
-4. Start app in local
-   ```sh
+   Create a `.env` file in the root directory:
+   ```env
+   # DatoCMS Configuration
+   DATOCMS_API_TOKEN=your_datocms_token
+   DATOCMS_ENVIRONMENT=main
+
+   # EmailJS Configuration
+   EMAIL_JS_SERVICE_ID=your_service_id
+   EMAIL_JS_TEMPLATE_ID=your_template_id
+   EMAIL_JS_USER_ID=your_public_key
+   ```
+
+4. **Start the development server**
+   ```bash
    npm run dev
    ```
 
-<!-- CONTACT -->
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Contact
+## 📜 Available Scripts
 
-Sebastian Gołąb - sebagolab97@gmail.com
+```bash
+# Development
+npm run dev          # Start dev server on localhost:3000
+
+# Production
+npm run build        # Build for production (outputs to dist/)
+npm start           # Run production build
+
+# Code Quality
+npm run lint        # Run ESLint checks
+
+# Testing
+npm test            # Run all tests once (CI mode)
+npm run test:watch  # Run tests in watch mode
+npm run test:ui     # Open Vitest UI in browser
+npm run test:coverage  # Generate coverage report
+```
+
+## 🧪 Testing
+
+For detailed testing guidelines, see [src/tests/README.md](src/tests/README.md).
+
+## 🏗️ Key Architecture Patterns
+
+### Component Structure
+- Each component has its own folder with `index.tsx` and `.scss`
+- Co-located tests (e.g., `Button/index.test.tsx`)
+- Props exported as interfaces for reusability
+
+### Data Fetching
+- DatoCMS integration via GraphQL
+- Custom hooks for data management ([useRealizations.ts](src/hooks/useRealizations.ts))
+- React cache for optimal performance
+
+### Styling
+- Sass modules with global variables
+- Design tokens for consistency (colors, fonts, breakpoints)
+- Mobile-first responsive approach
+
+## 🌍 Environment Variables
+
+Server-side environment variables (used in API routes):
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `DATOCMS_API_TOKEN` | DatoCMS read-only API token | Yes |
+| `DATOCMS_ENVIRONMENT` | DatoCMS environment name | No |
+| `EMAIL_JS_SERVICE_ID` | EmailJS service identifier | Yes |
+| `EMAIL_JS_TEMPLATE_ID` | EmailJS template identifier | Yes |
+| `EMAIL_JS_USER_ID` | EmailJS public key | Yes |
+
+## 📧 Contact
+
+**Sebastian Gołąb**
+- Email: sebagolab97@gmail.com
+- Website: [sebastiangolab.pl](http://sebastiangolab.pl/)
+- GitHub: [@sebastiangolab](https://github.com/sebastiangolab)
+
+## 📄 License
+
+This project is private and proprietary.
+
+---
+
+Built with ❤️
