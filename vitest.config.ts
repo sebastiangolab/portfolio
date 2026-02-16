@@ -9,7 +9,7 @@ export default defineConfig({
       environment: 'happy-dom',
 
       // Setup files
-      setupFiles: ['./src/test/setup.ts'],
+      setupFiles: ['./src/tests/setup.ts'],
 
       // Coverage configuration
       coverage: {
@@ -27,16 +27,43 @@ export default defineConfig({
          ],
          include: ['src/**/*.{ts,tsx}'],
          thresholds: {
+            // Global fallback
             lines: 70,
             functions: 70,
             branches: 70,
             statements: 70,
+
+            // Per-path thresholds (CLAUDE.md alignment)
+            'src/lib/**': {
+               lines: 90,
+               functions: 90,
+               branches: 90,
+               statements: 90,
+            },
+            'src/hooks/**': {
+               lines: 80,
+               functions: 80,
+               branches: 80,
+               statements: 80,
+            },
+            'src/app/api/**': {
+               lines: 90,
+               functions: 90,
+               branches: 90,
+               statements: 90,
+            },
+            'src/components/**': {
+               lines: 70,
+               functions: 70,
+               branches: 70,
+               statements: 70,
+            },
          },
       },
 
       // Test file patterns
       include: ['**/*.{test,spec}.{ts,tsx}'],
-      exclude: ['node_modules', 'dist', '.next'],
+      exclude: ['node_modules', 'dist', '.next', 'coverage', '.git'],
 
       // Global test configuration
       globals: true,

@@ -7,6 +7,7 @@ import React from 'react';
 // Cleanup after each test
 afterEach(() => {
    cleanup();
+   vi.clearAllMocks();
 });
 
 // Mock Next.js modules
@@ -74,16 +75,10 @@ process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID = 'test-service';
 process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID = 'test-template';
 process.env.NEXT_PUBLIC_EMAIL_JS_USER_ID = 'test-user';
 process.env.DATOCMS_API_TOKEN = 'test-token';
+process.env.DATOCMS_ENVIRONMENT = 'test-environment';
 process.env.EMAIL_JS_SERVICE_ID = 'test-service';
 process.env.EMAIL_JS_TEMPLATE_ID = 'test-template';
 process.env.EMAIL_JS_USER_ID = 'test-user';
-
-// Suppress console warnings in tests (optional)
-global.console = {
-   ...console,
-   error: vi.fn(),
-   warn: vi.fn(),
-};
 
 // Start MSW server before all tests
 beforeAll(() => server.listen({ onUnhandledRequest: 'warn' }));
