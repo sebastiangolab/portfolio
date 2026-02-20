@@ -14,7 +14,7 @@ interface Row {
 const rows = [
    {
       name: 'Home.pl',
-      position: 'Software Engineer',
+      position: 'Frontend developer',
       period: '10.05.2022 - now',
       content: (
          <>
